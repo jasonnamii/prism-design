@@ -1,0 +1,285 @@
+/* ============================================================
+   PRISM DESIGN SYSTEM — TOKENS
+   Achromatic base + prismatic accent for long-form documents,
+   product pages, and keynote-style presentations.
+   ============================================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-jp.css');
+
+:root {
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-display: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-text:    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* type scale — display sizes are intentionally enormous */
+  --fs-d1:   clamp(64px, 9vw, 144px);   /* hero killer */
+  --fs-d2:   clamp(48px, 6.5vw, 104px); /* section opener */
+  --fs-d3:   clamp(36px, 4.5vw, 72px);  /* sub-headline */
+  --fs-h1:   clamp(28px, 3vw, 48px);
+  --fs-h2:   clamp(22px, 2.2vw, 34px);
+  --fs-h3:   18px;
+  --fs-body: 17px;
+  --fs-sm:   14px;
+  --fs-xs:   12px;
+  --fs-eyebrow: 13px;
+
+  --lh-tight: 1.02;
+  --lh-snug:  1.12;
+  --lh-body:  1.5;
+  --lh-loose: 1.7;
+
+  --tr-tight: -0.035em;
+  --tr-snug:  -0.022em;
+  --tr-body:  -0.011em;
+  --tr-wide:  0.04em;
+
+  /* ---------- SPACING ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+  --sp-10: 128px;
+  --sp-11: 192px;
+  --sp-12: 256px;
+
+  /* density — overridden by tweaks */
+  --density: 1;
+
+  /* ---------- RADIUS ---------- */
+  --r-1:  6px;
+  --r-2:  10px;
+  --r-3:  16px;
+  --r-4:  22px;
+  --r-5:  28px;
+  --r-pill: 999px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.04), 0 2px 8px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,.10), 0 8px 24px rgba(0,0,0,.06);
+  --shadow-glow: 0 0 80px rgba(120, 90, 255, .25);
+
+  /* ---------- BLUR ---------- */
+  --blur-nav: saturate(180%) blur(22px);
+
+  /* ---------- TIMING ---------- */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --dur-fast: 180ms;
+  --dur-med: 320ms;
+  --dur-slow: 600ms;
+
+  /* ---------- PRISMATIC ACCENT (the rainbow) ----------
+     Custom hand-tuned stops — NOT copied from any vendor's gradient.
+     Designed for high contrast on both light + dark surfaces. */
+  --prism-1: #4F7DFF;  /* indigo-blue */
+  --prism-2: #8C5CFF;  /* violet */
+  --prism-3: #E04CC6;  /* magenta */
+  --prism-4: #FF6A4D;  /* coral */
+  --prism-5: #FFB347;  /* amber */
+  --prism-6: #4FD1B7;  /* mint */
+
+  --grad-prism: linear-gradient(95deg,
+    var(--prism-1) 0%,
+    var(--prism-2) 22%,
+    var(--prism-3) 46%,
+    var(--prism-4) 68%,
+    var(--prism-5) 88%,
+    var(--prism-6) 100%);
+
+  --grad-prism-soft: linear-gradient(95deg,
+    color-mix(in oklch, var(--prism-1) 70%, white) 0%,
+    color-mix(in oklch, var(--prism-3) 70%, white) 50%,
+    color-mix(in oklch, var(--prism-5) 70%, white) 100%);
+
+  --grad-aurora: radial-gradient(60% 80% at 30% 20%, rgba(140,92,255,.45), transparent 60%),
+                 radial-gradient(50% 70% at 80% 60%, rgba(224,76,198,.35), transparent 60%),
+                 radial-gradient(70% 60% at 60% 100%, rgba(79,209,183,.30), transparent 65%);
+}
+
+/* ===================== LIGHT THEME (default) ===================== */
+:root, [data-theme="light"] {
+  --bg-canvas:  #f4f4f6;   /* slightly cool gray, NOT white */
+  --bg-surface: #ffffff;
+  --bg-elev:    #ffffff;
+  --bg-sunken:  #ececef;
+  --bg-inverse: #0a0a0c;
+
+  --fg-primary:   #0a0a0c;
+  --fg-secondary: #4a4a52;
+  --fg-tertiary:  #86868c;
+  --fg-on-accent: #ffffff;
+  --fg-inverse:   #f4f4f6;
+
+  --line-soft:   rgba(10,10,12,.08);
+  --line-medium: rgba(10,10,12,.14);
+  --line-strong: rgba(10,10,12,.24);
+
+  --nav-bg: rgba(244,244,246,.72);
+}
+
+/* ===================== DARK THEME ===================== */
+[data-theme="dark"] {
+  --bg-canvas:  #000000;
+  --bg-surface: #0e0e10;
+  --bg-elev:    #18181b;
+  --bg-sunken:  #050506;
+  --bg-inverse: #f4f4f6;
+
+  --fg-primary:   #f5f5f7;
+  --fg-secondary: #a8a8b0;
+  --fg-tertiary:  #6e6e76;
+  --fg-on-accent: #ffffff;
+  --fg-inverse:   #0a0a0c;
+
+  --line-soft:   rgba(255,255,255,.08);
+  --line-medium: rgba(255,255,255,.14);
+  --line-strong: rgba(255,255,255,.24);
+
+  --nav-bg: rgba(8,8,10,.72);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.4);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,.6), 0 8px 24px rgba(0,0,0,.4);
+}
+
+/* ===================== BASE ===================== */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-canvas);
+  color: var(--fg-primary);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tr-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background var(--dur-med) var(--ease-out), color var(--dur-med) var(--ease-out);
+}
+
+::selection { background: var(--prism-2); color: white; }
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img, video, svg { display: block; max-width: 100%; }
+
+/* ---------- UTILITY: prismatic text ---------- */
+.prism-text {
+  background: var(--grad-prism);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- UTILITY: container ---------- */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+}
+.container-wide { max-width: 1440px; }
+.container-narrow { max-width: 880px; }
+
+/* ---------- UTILITY: section spacing ---------- */
+.section {
+  padding: calc(var(--sp-10) * var(--density)) 0;
+}
+.section-tight {
+  padding: calc(var(--sp-9) * var(--density)) 0;
+}
+.section-hero {
+  padding: calc(var(--sp-11) * var(--density)) 0 calc(var(--sp-10) * var(--density));
+}
+
+/* ---------- UTILITY: type ---------- */
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tr-wide);
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+}
+.display-1 { font-size: var(--fs-d1); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); font-weight: 800; }
+.display-2 { font-size: var(--fs-d2); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); font-weight: 800; }
+.display-3 { font-size: var(--fs-d3); line-height: var(--lh-snug); letter-spacing: var(--tr-snug);  font-weight: 700; }
+.headline-1{ font-size: var(--fs-h1); line-height: var(--lh-snug); letter-spacing: var(--tr-snug);  font-weight: 700; }
+.headline-2{ font-size: var(--fs-h2); line-height: var(--lh-snug); letter-spacing: var(--tr-snug);  font-weight: 600; }
+.body-lg   { font-size: 19px; line-height: var(--lh-loose); color: var(--fg-secondary); }
+.body      { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-secondary); }
+.caption   { font-size: var(--fs-sm); color: var(--fg-tertiary); }
+
+/* ---------- UTILITY: surfaces ---------- */
+.surface {
+  background: var(--bg-surface);
+  border-radius: var(--r-4);
+  border: 1px solid var(--line-soft);
+}
+.surface-elev {
+  background: var(--bg-elev);
+  border-radius: var(--r-4);
+  box-shadow: var(--shadow-md);
+}
+.surface-sunken {
+  background: var(--bg-sunken);
+  border-radius: var(--r-4);
+}
+
+/* ---------- IMAGE PLACEHOLDER ---------- */
+.img-placeholder {
+  position: relative;
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--bg-sunken) 100%, transparent),
+    color-mix(in oklch, var(--bg-sunken) 100%, transparent) 12px,
+    color-mix(in oklch, var(--bg-canvas) 100%, transparent) 12px,
+    color-mix(in oklch, var(--bg-canvas) 100%, transparent) 24px
+  );
+  border-radius: var(--r-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tr-wide);
+  text-transform: uppercase;
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+/* ---------- SCROLL ---------- */
+html { scroll-behavior: smooth; }
+
+/* ---------- NOISE OVERLAY ON DARK ---------- */
+[data-theme="dark"] body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: .6;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* fade-in scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}

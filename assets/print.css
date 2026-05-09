@@ -1,0 +1,66 @@
+/* print.css — A4 / Letter print stylesheet for long documents */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm 22mm;
+    @bottom-center {
+      content: counter(page) " / " counter(pages);
+      font-family: -apple-system, sans-serif;
+      font-size: 9pt;
+      color: #888;
+    }
+  }
+
+  :root {
+    --bg-canvas: #ffffff !important;
+    --bg-surface: #ffffff !important;
+    --bg-sunken: #fafafa !important;
+    --fg-primary: #000 !important;
+    --fg-secondary: #333 !important;
+    --fg-tertiary: #777 !important;
+    --line-soft: #e0e0e0 !important;
+    --line-medium: #c0c0c0 !important;
+  }
+
+  html, body {
+    background: white !important;
+    color: black !important;
+    font-size: 10pt !important;
+  }
+
+  /* hide chrome */
+  .topnav, .reading-progress, .sticky-toc,
+  [data-cc-id], .tweaks-panel, .tweaks-toggle {
+    display: none !important;
+  }
+
+  /* page-break safety */
+  h1, h2, h3, .display-1, .display-2, .display-3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .section, .section-tight, .chapter-divider, .section-cover {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding: 24pt 0 !important;
+  }
+  .chapter-divider, .section-cover {
+    page-break-before: always;
+    break-before: page;
+  }
+  .figure-section, .quote-section, .callout-section, .tldr-section,
+  .pyramid-grid, .venn-grid, .matrix-wrap {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  /* shrink display type for print */
+  .display-1 { font-size: 36pt !important; }
+  .display-2 { font-size: 28pt !important; }
+  .display-3 { font-size: 20pt !important; }
+
+  /* preserve color mode for accents */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

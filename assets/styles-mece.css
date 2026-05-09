@@ -1,0 +1,42 @@
+/* mece-divider styles — appended to styles.css workflow */
+
+.mece-divider {
+  padding: calc(80px * var(--density, 1)) 0 calc(40px * var(--density, 1));
+  background: var(--bg-canvas);
+}
+.mece-rule {
+  height: 1px;
+  background: var(--line-soft);
+  margin-bottom: 32px;
+}
+.mece-row {
+  display: flex; align-items: flex-end; gap: 24px;
+}
+.mece-kana {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: var(--tr-wide);
+  color: var(--fg-tertiary);
+  background: var(--grad-prism);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  flex-shrink: 0;
+  width: 48px;
+}
+.mece-text { display: flex; flex-direction: column; gap: 4px; }
+.mece-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: var(--tr-tight);
+  margin: 0;
+  color: var(--fg-primary);
+}
+.mece-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: var(--tr-wide);
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  margin: 0;
+}

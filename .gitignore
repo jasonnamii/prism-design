@@ -1,0 +1,8 @@
+.DS_Store
+*.pyc
+__pycache__/
+*.log
+.env
+node_modules/
+.remote-cache
+logs/
