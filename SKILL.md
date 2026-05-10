@@ -1,8 +1,8 @@
 ---
 name: prism-design
 description: |
-  Prism 디자인시스템 호출·조립 엔진. 무채색 + 프리즘 그라디언트 액센트로 장문보고서·키노트덱·랜딩·white paper·model card·release notes 산출. R18+tokens.css·9 MECE×40+ 컴포넌트·Pretendard·EN/KO·라이트/다크. 진단·생성 2모드.
-  P1: 프리즘디자인, prism-design, prism, 프리즘, 프리즘시스템, 장문보고서, long-scroll, 키노트덱, keynote deck, 랜딩페이지, 마케팅페이지, white paper, 백서, model card, release notes, 릴리즈노트, MECE divider, Pretendard, prism-text, 그라디언트액센트, bento, 베노, sticky showcase, 스티키쇼케이스, edu menu, hero, 히어로, KPI, pull quote, 풀쿼트, 무채색디자인, 9MECE, 한장보고서, 리포트디자인.
+  Prism 디자인시스템 호출·조립 엔진. 무채색+프리즘 액센트로 장문보고서·키노트덱·랜딩·white paper·model card·release notes 산출. 9 MECE×40+ 컴포넌트·Pretendard·EN/KO. 진단·생성 2모드.
+  P1: 프리즘디자인, prism, 프리즘, 프리즘시스템, 장문보고서, long-scroll, 키노트덱, keynote deck, deck stage, 슬라이드덱, 랜딩페이지, white paper, model card, release notes, MECE divider, Pretendard, prism-text, 그라디언트액센트, bento, sticky showcase, edu menu, hero, KPI, pull quote, 무채색디자인, 9MECE, 한장보고서, 부팅골격, samples 골격, voice-tone, mece-doctrine.
   P2: 만들어줘, 조립해줘, 디자인해줘, 페이지만들어줘, 보고서디자인, 랜딩만들어줘, 덱만들어줘, build, assemble, design report, create landing.
   P3: long-scroll document, marketing landing, keynote deck, white paper, model card, release notes, prism design, bilingual EN-KO.
   P4: 장문 보고서 출고시, 키노트 덱 작성시, 제품 마케팅 페이지 빌드시, IR 내러티브, 릴리즈노트 페이지 시.
@@ -29,11 +29,14 @@ license: Proprietary. Internal use.
 
 **발동 조건:** P1·P2 hit + 산출 형식이 장문 페이지(.html). 단일 컴포넌트만 필요 = ui-designer로 라우팅. .md div 래핑만 = html-div-style.
 
-**진입:** 자료 파악(목차·섹션 수·언어) → 모드 결정(진단·생성) → MECE 그룹 매핑 → 컴포넌트 선택 → index.html 부팅.
+**진입:** 자료 파악(목차·섹션 수·언어) → 모드 결정(진단·생성) → MECE 그룹 매핑 → 컴포넌트 선택 → 부팅 골격 선택(`samples/` 5종 또는 `slides/` 키노트) → index.html 부팅.
+
+**카피 작성 시 voice-tone 정본 강제:** 헤드라인·본문·CTA 작성 직전 `→ references/voice-tone.md` 1회 통과. hype 어휘·느낌표·emoji 적발 = 재작성.
 
 ## §B 9 MECE 라우팅표 (compressed)
 
-`→ references/mece-catalog.md` (전체 카탈로그·컴포넌트별 use-when·금기)
+`→ references/mece-doctrine.md` (전체 카탈로그·use-when·금기·확장 6단계 — NEW 정본 흡수)
+`→ references/mece-catalog.md` (요약 카탈로그)
 
 | 그룹 | 용도 | 핵심 컴포넌트 |
 |---|---|---|
@@ -77,7 +80,8 @@ license: Proprietary. Internal use.
 
 ## §D 비협상 룰 (자산 룰 박제)
 
-`→ references/non-negotiable.md` (전체)
+`→ references/non-negotiable.md` (자산 룰 전체)
+`→ references/voice-tone.md` (카피·톤·아이코노그래피 — NEW 정본 흡수)
 
 **핵심 5축:**
 - **Type:** Pretendard Variable 단일·display clamp 64-144px·`--tr-tight: -0.035em`·body 17px
@@ -110,7 +114,22 @@ license: Proprietary. Internal use.
 └── print.css
 ```
 
-**최소 부팅:** `assets/index.html`을 그대로 사용자 폴더에 복사 → 자산 동봉 → 브라우저 더블클릭으로 즉시 작동(CDN·Babel standalone).
+**부팅 골격 5종 (assets/samples/):** 처음부터 짜지 말고 골격 1개 복사 후 콘텐츠 교체.
+| 골격 | 용도 |
+|---|---|
+| `samples/landing.html` | 마케팅 랜딩 페이지 |
+| `samples/report.html` | 장문 보고서·white paper |
+| `samples/pitch.html` | IR·피치덱 본문 |
+| `samples/dashboard.html` | KPI 한 장 (Numbers 그룹 중심) |
+| `samples/index.html` | 9 MECE 전부 통과하는 풀 데모 |
+
+**키노트덱 모드 (assets/slides/):** 슬라이드 형식 산출 시.
+- `slides/index.html` — 부팅 진입점
+- `slides/deck-stage.js` — 키노트 엔진 (1709줄, title·section·big-quote·stat·comparison·close 슬라이드 타입)
+
+**Specimen 검증 (assets/preview/):** 23개 카드(브랜드·컬러·타입·스페이싱·컴포넌트). 디자인 QA 시 대조용. 사용자 출력엔 포함 ✗.
+
+**최소 부팅:** `assets/index.html` 또는 `assets/samples/{type}.html`을 그대로 사용자 폴더에 복사 → 자산 동봉 → 브라우저 더블클릭으로 즉시 작동(CDN·Babel standalone).
 
 **커스터마이즈 진입점 5:**
 | 위치 | 무엇을 |

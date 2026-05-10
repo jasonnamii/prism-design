@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prism — Sample Slides</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <script src="deck-stage.js"></script>
+  <style>
+    /* deck slide chrome */
+    deck-stage section { color: var(--fg-primary); background: var(--bg-canvas); padding: 64px 96px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    deck-stage section.dark { background: #000; color: #f5f5f7; }
+    deck-stage section.full { padding: 0; justify-content: stretch; }
+    .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-tertiary); }
+    .display-1 { font-size: 132px; line-height: .98; letter-spacing: -0.035em; font-weight: 800; text-wrap: balance; margin: 24px 0 0; }
+    .display-2 { font-size: 96px; line-height: 1; letter-spacing: -0.035em; font-weight: 800; text-wrap: balance; margin: 0; }
+    .display-3 { font-size: 72px; line-height: 1.05; letter-spacing: -0.022em; font-weight: 700; text-wrap: balance; margin: 0; }
+    .body-lg { font-size: 28px; line-height: 1.5; color: var(--fg-secondary); max-width: 880px; text-wrap: pretty; margin: 32px 0 0; }
+    .meta-row { display: flex; gap: 32px; font-size: 16px; color: var(--fg-tertiary); font-family: var(--font-mono); margin-top: 64px; }
+    .prism-text { background: var(--grad-prism); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+    .brand-mark { width: 44px; height: 44px; border-radius: 13px; background: var(--grad-prism); display: grid; place-items: center; }
+    .brand-mark > i { width: 16px; height: 16px; border-radius: 50%; background: var(--bg-canvas); display: block; }
+    .dark .brand-mark > i { background: #000; }
+    .brand-row { display: flex; align-items: center; gap: 16px; }
+    .brand-row span { font-weight: 700; font-size: 22px; letter-spacing: -0.022em; }
+    .aurora { position: absolute; inset: -10% -5% auto -5%; height: 90%; background: var(--grad-aurora); filter: blur(80px); opacity: .55; pointer-events: none; z-index: 0; }
+    .stage-content { position: relative; z-index: 1; }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 56px; }
+    .stat-grid .num { font-size: 144px; font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+    .stat-grid .lbl { font-size: 19px; color: var(--fg-secondary); margin-top: 16px; max-width: 280px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 56px; border-top: 1px solid var(--line-soft); }
+    .compare > div { padding: 48px 56px; border-bottom: 1px solid var(--line-soft); }
+    .compare > div + div { border-left: 1px solid var(--line-soft); }
+    .compare h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.022em; margin: 0 0 24px; }
+    .compare ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 19px; color: var(--fg-secondary); }
+    .compare li::before { content: "→ "; font-family: var(--font-mono); color: var(--fg-tertiary); margin-right: 8px; }
+    .quote-mark { font-size: 220px; line-height: .8; font-weight: 800; letter-spacing: -0.05em; }
+    blockquote { font-size: 56px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em; max-width: 1200px; margin: -32px 0 0; text-wrap: balance; }
+    .cite { font-size: 18px; color: var(--fg-tertiary); margin-top: 32px; font-family: var(--font-mono); }
+    .section-num { font-family: var(--font-mono); font-size: 18px; color: var(--fg-tertiary); }
+    .section-rule { height: 1px; background: var(--line-soft); margin: 24px 0; }
+    .close-mark { font-size: 200px; line-height: 1; font-weight: 800; letter-spacing: -0.05em; }
+    .close-row { display: flex; gap: 24px; font-size: 19px; color: var(--fg-tertiary); margin-top: 64px; font-family: var(--font-mono); }
+    .footer-mono { position: absolute; bottom: 40px; left: 96px; right: 96px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 13px; color: var(--fg-tertiary); }
+  </style>
+</head>
+<body>
+
+<deck-stage>
+
+  <!-- 01 · Cover -->
+  <section class="dark full">
+    <div class="aurora"></div>
+    <div class="stage-content" style="padding: 64px 96px; height:100%; display:flex; flex-direction:column; justify-content:flex-end;">
+      <div class="eyebrow" style="color:rgba(255,255,255,.6)">PRISM · v1.0 · KEYNOTE</div>
+      <h1 class="display-1" style="margin-top:32px">Make every page<br>feel <span class="prism-text">inevitable</span>.</h1>
+      <div class="meta-row" style="color:rgba(255,255,255,.5); margin-top:96px">
+        <span>2026 · ANNUAL REPORT</span>
+        <span>PRISM DESIGN SYSTEM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Section divider -->
+  <section>
+    <div class="section-num">— 01 / 06</div>
+    <div class="section-rule"></div>
+    <div class="eyebrow prism-text">CHAPTER ONE</div>
+    <h2 class="display-2" style="margin-top:24px">A system,<br>not a styleset.</h2>
+    <p class="body-lg">Prism is organized by purpose, not appearance. Nine MECE groups cover every page-level surface — and stop you from inventing a tenth.</p>
+  </section>
+
+  <!-- 03 · Big stat -->
+  <section>
+    <div class="eyebrow">MEASURED IMPACT</div>
+    <div class="stat-grid">
+      <div>
+        <div class="num prism-text">2.4×</div>
+        <div class="lbl">faster page assembly versus a freeform layout system.</div>
+      </div>
+      <div>
+        <div class="num prism-text">9</div>
+        <div class="lbl">MECE component groups. Strict 01 → 09 ordering.</div>
+      </div>
+      <div>
+        <div class="num prism-text">40+</div>
+        <div class="lbl">components — every visual job mapped to exactly one.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · Big quote -->
+  <section class="dark">
+    <div class="aurora" style="opacity:.4"></div>
+    <div class="stage-content">
+      <div class="quote-mark prism-text">"</div>
+      <blockquote>Constraints are the source of inevitability. Prism is the constraints, written down.</blockquote>
+      <div class="cite">— DESIGN PRINCIPLE · 003</div>
+    </div>
+  </section>
+
+  <!-- 05 · Comparison -->
+  <section>
+    <div class="eyebrow">SIDE BY SIDE</div>
+    <h2 class="display-3" style="margin-top:16px;">Before Prism &nbsp;·&nbsp; <span class="prism-text">After Prism</span></h2>
+    <div class="compare">
+      <div>
+        <h3 style="color:var(--fg-tertiary)">Before</h3>
+        <ul>
+          <li>Six adjacent card sections</li>
+          <li>Three competing accents</li>
+          <li>Hand-rolled spacing on every block</li>
+          <li>Headlines compete with sub-heads</li>
+        </ul>
+      </div>
+      <div>
+        <h3>After</h3>
+        <ul>
+          <li>Each section earns its MECE group</li>
+          <li>One gradient, used as punctuation</li>
+          <li>12-step token scale, density slider</li>
+          <li>Display headlines own the page</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · Closing -->
+  <section class="dark">
+    <div class="aurora"></div>
+    <div class="stage-content">
+      <div class="close-mark prism-text">→</div>
+      <h2 class="display-2" style="margin-top:24px;">Build something<br>worth reading.</h2>
+      <div class="close-row">
+        <span>prism.design</span>
+        <span>·</span>
+        <span>v1.0 · 2026</span>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script type="application/json" id="speaker-notes">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+</body>
+</html>

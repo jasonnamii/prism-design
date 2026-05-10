@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prism · Report template</title>
+  <link rel="stylesheet" href="../ui_kits/prism/tokens.css" />
+  <link rel="stylesheet" href="../ui_kits/prism/styles.css" />
+  <link rel="stylesheet" href="../ui_kits/prism/styles-mece.css" />
+  <link rel="stylesheet" href="../ui_kits/prism/styles-data.css" />
+  <link rel="stylesheet" href="../ui_kits/prism/styles-viz.css" />
+  <link rel="stylesheet" href="../ui_kits/prism/styles-doc.css" />
+  <link rel="stylesheet" href="../ui_kits/prism/print.css" media="print" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../ui_kits/prism/image-slot.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="../ui_kits/prism/i18n.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/primitives.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/sections-marketing.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/sections-content.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/sections-data.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/sections-viz.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/sections-doc.jsx"></script>
+  <script type="text/babel" src="../ui_kits/prism/sections-shapes.jsx"></script>
+  <script type="text/babel">
+    const { TopNav, Footer, ReadingProgress, StickyTOC } = window.PRISM_PRIMITIVES;
+    const { Cover, ChapterDivider, TLDR, Figure, MarginNote, Glossary, CodeBlock, DataTable, Footnotes } = window.PRISM_DOC;
+    const { PullQuote, Callouts, FAQ } = window.PRISM_DATA;
+    const c = (window.PRISM_COPY || {}).en;
+
+    function ReportApp() {
+      const tocItems = [
+        { id: "tldr",  label: "TL;DR" },
+        { id: "ch1",   label: "01 Premise" },
+        { id: "ch2",   label: "02 Findings" },
+        { id: "ch3",   label: "03 Reference" },
+      ];
+      return (
+        <>
+          <ReadingProgress />
+          <TopNav copy={c.nav} theme="light" lang="en" setTheme={()=>{}} setLang={()=>{}} />
+          <main id="top">
+            <Cover copy={c.cover} />
+            <TLDR copy={c.tldr} />
+            <StickyTOC items={tocItems} />
+
+            <ChapterDivider copy={{ kana: "01", title: "Premise", sub: "Why this work, and what to expect." }} />
+            <PullQuote copy={c.quote} />
+            <Figure copy={c.figure} />
+            <MarginNote copy={c.margin} />
+
+            <ChapterDivider copy={{ kana: "02", title: "Findings", sub: "Evidence, exhibits, and the read." }} />
+            <DataTable copy={c.dtable} />
+            <Callouts copy={c.callouts} />
+            <CodeBlock copy={c.code} />
+
+            <ChapterDivider copy={{ kana: "03", title: "Reference", sub: "Glossary, FAQ, and footnotes." }} />
+            <FAQ copy={c.faq} />
+            <Glossary copy={c.glossary} />
+            <Footnotes copy={c.footnotes} />
+          </main>
+          <Footer copy={c.footer} />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<ReportApp />);
+  </script>
+</body>
+</html>
