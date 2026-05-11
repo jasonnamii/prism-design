@@ -24,6 +24,7 @@ license: Proprietary. Internal use.
 | 3 | **그라디언트 = 액센트 한정** — 본문 단락·대면적 fill에 `--grad-prism` 적용 ✗. `.prism-text`로 텍스트 액센트만 | 시스템 톤 희석 |
 | 4 | **자산 수정 ✗** — `assets/` 19파일은 read-only. 사용자 페이지에서 컴포넌트 조립만 | 시스템 분기·후속 호환 ✗ |
 | 5 | **Pretendard 단일** — Inter·Roboto·system stack 추가 ✗ | 타이포 일관성 |
+| 6 | **C8 액센트 = Cre8orClub 전용** — `--c8`(#39FF14)는 Cre8orClub·크리에이터클럽 컨텍스트에서만. `--grad-prism`에 합성 ✗·일반 페이지 본문 fill ✗·텍스트/CTA/로고마크 액센트만 | 브랜드 의미 보존 |
 
 ## §A 발동·진입
 
