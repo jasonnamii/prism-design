@@ -25,6 +25,7 @@ license: Proprietary. Internal use.
 | 4 | **자산 수정 ✗** — `assets/` 19파일은 read-only. 사용자 페이지에서 컴포넌트 조립만 | 시스템 분기·후속 호환 ✗ |
 | 5 | **Pretendard 단일** — Inter·Roboto·system stack 추가 ✗ | 타이포 일관성 |
 | 6 | **C8 액센트 = Cre8orClub 전용** — `--c8`(#39FF14)는 Cre8orClub·크리에이터클럽 컨텍스트에서만. `--grad-prism`에 합성 ✗·일반 페이지 본문 fill ✗·텍스트/CTA/로고마크 액센트만 | 브랜드 의미 보존 |
+| 7 | **형광펜 = `.hl` 클래스만** — `linear-gradient(to top, color 50%, transparent 50%)` 절반 fill 방식 ✗. `box-decoration-break: clone` + `padding: 0.08em 0.32em` + `border-radius: 0.4em` 풀 fill 캡슐만. 다크모드에서도 fill 비비드 유지·텍스트 `var(--hl-ink)` 검정 강제·opacity·투명 처리 ✗ | 가독성·줄바꿈 짤림 방지 |
 
 ## §A 발동·진입
 
@@ -156,6 +157,10 @@ license: Proprietary. Internal use.
 | 새 폰트 추가 (Inter·Roboto) | Pretendard만. Korean·English·Japanese 통합 처리 |
 | MeceDivider 그룹 순서 뒤섞기 | 01→09 순서 강제. 점프·역순 ✗ |
 | StickyShowcase 단계 텍스트만 | 이미지 슬롯 필수 — 핀된 시각 자산이 본질 |
+| 형광펜이 글자 절반만 덮음·descender 짤림 | `linear-gradient 50%` 방식 ✗. `.hl` 클래스 사용 — 풀 fill + padding으로 글자 전체 감쌈 |
+| 다크모드에서 형광펜 안 보임·텍스트 안 읽힘 | `.hl`은 라이트·다크 동일 비비드 fill·검정 텍스트 강제. opacity·color-mix 톤다운 ✗ |
+| 줄바꿈 시 형광펜 양 끝 안 둥글어짐 | `box-decoration-break: clone` 필수 (`.hl`에 박제됨). 다른 클래스로 형광펜 재구현 ✗ |
+| 작은 본문 글자에 `.hl` 답답함 | `.hl-tight` 사용 — 패딩 0.04em·라운드 0.3em으로 축소 |
 
 ## ❌WRONG / ✅CORRECT
 
