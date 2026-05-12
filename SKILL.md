@@ -27,6 +27,20 @@ license: Proprietary. Internal use.
 | 6 | **C8 액센트 = Cre8orClub 전용** — `--c8`(#39FF14)는 Cre8orClub·크리에이터클럽 컨텍스트에서만. `--grad-prism`에 합성 ✗·일반 페이지 본문 fill ✗·텍스트/CTA/로고마크 액센트만 | 브랜드 의미 보존 |
 | 7 | **형광펜 = `.hl` 클래스만** — `linear-gradient(to top, color 50%, transparent 50%)` 절반 fill 방식 ✗. `box-decoration-break: clone` + `padding: 0.08em 0.32em` + `border-radius: 0.4em` 풀 fill 캡슐만. 다크모드에서도 fill 비비드 유지·텍스트 `var(--hl-ink)` 검정 강제·opacity·투명 처리 ✗ | 가독성·줄바꿈 짤림 방지 |
 
+## §0 INTENT — 의도 결정 (디폴트 자동, 명시 시 override)
+
+| 의도 | 디폴트 모드 | Density | Temperature |
+|---|---|:-:|---|
+| **REPORT** 분석·시리즈물·복기 | 생성 + 무채색 + MECE 9 | 4 | cold/neutral |
+| **WHITEPAPER** IR·산업분석·연구 | 생성 + 무채색 + Doc+Numbers 중심 | 5 | neutral/quiet |
+| **LANDING** 제품·서비스 마케팅 | 생성 + 액센트 + Marketing+Cards | 2~3 | warm/hot |
+| **DECK** 키노트·발표 | slides/ 부팅 | 2 | hot |
+| **DIAGNOSE** 기존 시안 평가 | 진단 | — | — |
+
+**Density 1~5**: 1=iconic / 2=brand narrative / 3=structured / 4=evidence-heavy / 5=decision document. evidence-heavy를 lifestyle로 ✗.
+
+**Temperature**: cold(analytical)·neutral(institutional)·warm(human)·hot(campaign)·quiet(museum). 무채색 베이스 + 그라디언트 1회 안에서도 *온도*는 다름. WHITEPAPER cold ↔ LANDING hot.
+
 ## §A 발동·진입
 
 **발동 조건:** P1·P2 hit + 산출 형식이 장문 페이지(.html). 단일 컴포넌트만 필요 = ui-designer로 라우팅. .md div 래핑만 = html-div-style.
@@ -161,6 +175,9 @@ license: Proprietary. Internal use.
 | 다크모드에서 형광펜 안 보임·텍스트 안 읽힘 | `.hl`은 라이트·다크 동일 비비드 fill·검정 텍스트 강제. opacity·color-mix 톤다운 ✗ |
 | 줄바꿈 시 형광펜 양 끝 안 둥글어짐 | `box-decoration-break: clone` 필수 (`.hl`에 박제됨). 다른 클래스로 형광펜 재구현 ✗ |
 | 작은 본문 글자에 `.hl` 답답함 | `.hl-tight` 사용 — 패딩 0.04em·라운드 0.3em으로 축소 |
+| **AI 평균값 클리셰** | 검은 배경 디폴트·neon gradient·glowing orb·glass card 남용·centered hero only·identical 3카드 그리드·fake dashboard. *디자인이 평균 SaaS 랜딩처럼 되면 INTENT부터 재선택* |
+| **섹션 반복** | 같은 구조 2회 이상 ✗. MECE 9 그룹 = *섹션마다 다른 그룹*. 카드 → 다이어그램 → 테이블 → 에디토리얼 순환 |
+| **"못생겨도 되는 영역"** | tables·captions·footnotes·DataTable·Glossary는 decoration ✗. evidence-heavy(Density 4~5)는 *예쁨보다 신뢰감*. `.prism-text`·gradient 적용 ✗ |
 
 ## ❌WRONG / ✅CORRECT
 
@@ -188,6 +205,29 @@ license: Proprietary. Internal use.
 <MeceDivider index="03" title="Numbers" />
 <StatGrid />
 ```
+
+## Typography Roles (16스케일에 *역할* 매핑)
+
+| 역할 | 의미 | Prism 위치 |
+|---|---|---|
+| Voice | 주 감정·개념 (Hero·display) | `.display-1~3` 64~96px |
+| System | 라벨·내비·메타 (eyebrow·MECE divider 인덱스) | 12~14px |
+| Reading | 본문 (verbatim 보존) | 17~19px body·body-lg |
+| Evidence | 수치·캡션·각주·spec | 12~15px·mono·`.caption` |
+| Accent | 제한적 강조 (`.prism-text`·`.hl`) | 페이지당 1~2회 |
+
+## Color Roles (기존 토큰에 *역할* 라벨)
+
+| 역할 | Prism 토큰 |
+|---|---|
+| ground | `--bg-canvas`·`--bg-surface`·`--bg-sunken` (무채색) |
+| text | `--fg-primary`·`--fg-secondary`·`--fg-tertiary`·`--fg-on-dark-*` |
+| authority | `--fg-primary` (검정 본문) |
+| signal | `--c8`·`--prism-3` 등 (페이지당 1개·솔리드) |
+| culture | `--prism-1~6` gradient·`--hl-*` 형광펜 5색 |
+| depth | `--line-soft`·`--bg-sunken`·`--bg-elev` |
+
+→ "예쁜 색"이 아니라 *역할*로 선택. signal은 페이지당 1개. culture는 gradient/형광펜 — strip 패턴만.
 
 ## 톤
 
