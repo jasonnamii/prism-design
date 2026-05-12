@@ -2,7 +2,7 @@
 name: prism-design
 description: |
   Prism 디자인시스템 호출·조립 엔진. 무채색+프리즘 액센트로 장문보고서·키노트덱·랜딩·white paper·model card·release notes 산출. 9 MECE×40+ 컴포넌트·Pretendard·EN/KO. 진단·생성 2모드.
-  P1: 프리즘디자인, prism, 프리즘, 프리즘시스템, 장문보고서, long-scroll, 키노트덱, keynote deck, deck stage, 슬라이드덱, 랜딩페이지, white paper, model card, release notes, MECE divider, Pretendard, prism-text, 그라디언트액센트, bento, sticky showcase, edu menu, hero, KPI, pull quote, 무채색디자인, 9MECE, 한장보고서, 부팅골격, samples 골격, voice-tone, mece-doctrine.
+  P1: 프리즘디자인, prism, 프리즘, 프리즘시스템, 장문보고서, long-scroll, 키노트덱, keynote deck, deck stage, 슬라이드덱, 랜딩페이지, white paper, model card, release notes, MECE divider, Pretendard, prism-text, 그라디언트액센트, bento, sticky showcase, edu menu, hero, KPI, pull quote, 무채색디자인, 9MECE, 한장보고서, 부팅골격, samples 골격, voice-tone, mece-doctrine, 모션카탈로그, motion, reduced-motion, 접근성.
   P2: 만들어줘, 조립해줘, 디자인해줘, 페이지만들어줘, 보고서디자인, 랜딩만들어줘, 덱만들어줘, build, assemble, design report, create landing.
   P3: long-scroll document, marketing landing, keynote deck, white paper, model card, release notes, prism design, bilingual EN-KO.
   P4: 장문 보고서 출고시, 키노트 덱 작성시, 제품 마케팅 페이지 빌드시, IR 내러티브, 릴리즈노트 페이지 시.
@@ -178,6 +178,10 @@ license: Proprietary. Internal use.
 | **AI 평균값 클리셰** | 검은 배경 디폴트·neon gradient·glowing orb·glass card 남용·centered hero only·identical 3카드 그리드·fake dashboard. *디자인이 평균 SaaS 랜딩처럼 되면 INTENT부터 재선택* |
 | **섹션 반복** | 같은 구조 2회 이상 ✗. MECE 9 그룹 = *섹션마다 다른 그룹*. 카드 → 다이어그램 → 테이블 → 에디토리얼 순환 |
 | **"못생겨도 되는 영역"** | tables·captions·footnotes·DataTable·Glossary는 decoration ✗. evidence-heavy(Density 4~5)는 *예쁨보다 신뢰감*. `.prism-text`·gradient 적용 ✗ |
+| **모션 카탈로그** | 11분류 50+ 패턴·Apple 어휘·강도 0~5·duration/easing 표·reduced-motion 폴백 — 정답 ✗·*어휘 사전* → `→ references/motion-catalog.md` |
+| **모션 강약 분포** | 한 페이지 안 *모든 섹션 같은 강도 ✗*. 1개 섹션만 페이지 최대 강도 N, 2~3개 N-1, 나머지 N-2 이하, 1+ 정적 영역 의무 (Density 3+ 적용) |
+| **AI 평균값 모션 클리셰** | 모든 카드 같은 hover·모든 섹션 같은 fade up·particle·constant gradient·neon glow·cursor follow (진지 문서)·bouncy easing (프리미엄)·blur text reveal — 의미 없는 모션 = 제거 |
+| **reduced-motion 폴백** | 모든 HTML 산출물 `@media (prefers-reduced-motion: reduce)` 의무. parallax·scroll scrub·zoom·3D tilt 비활성화·fade로 대체. 위반 = 접근성 FAIL |
 
 ## ❌WRONG / ✅CORRECT
 
