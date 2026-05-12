@@ -89,10 +89,10 @@
   /* ---------- CRE8ORCLUB ACCENT (C8) ----------
      형광 그린. Cre8orClub / 크리에이터클럽 전용 액센트.
      prism 6스톱과 독립. NOT in --grad-prism. 액센트·텍스트 강조·CTA·로고 마크용. */
-  --c8:          #39FF14;   /* Cre8orClub neon green (a.k.a. 크리에이터클럽, C8) */
-  --c8-soft:     #6BFF52;   /* lifted for dark surfaces */
-  --c8-deep:     #1FCC00;   /* anchored for light surfaces */
-  --c8-ink:      #0A1A05;   /* paired text on c8 fill */
+  --c8:          #07ED21;   /* Cre8orClub neon green (a.k.a. 크리에이터클럽, C8) */
+  --c8-soft:     #4DFF5E;   /* lifted for dark surfaces */
+  --c8-deep:     #06B81A;   /* anchored for light surfaces */
+  --c8-ink:      #04140A;   /* paired text on c8 fill */
 
   /* ---------- HIGHLIGHT PEN (rounded-pill) ----------
      형광펜 비비드 풀채도. 다크/라이트 모두 동일 fill·검정 텍스트.
@@ -100,7 +100,7 @@
      절반 fill·linear-gradient 50% 방식 ✗. */
   --hl-yellow:  #F0F921;   /* vivid yellow (Apple-style) */
   --hl-green:   #C6F432;   /* lime-green (catalog energy) */
-  --hl-c8:      #39FF14;   /* C8 neon green (Cre8orClub) */
+  --hl-c8:      #07ED21;   /* C8 neon green (Cre8orClub) */
   --hl-pink:    #FF7AB6;   /* hot pink */
   --hl-blue:    #6FB0FF;   /* sky blue */
   --hl-ink:     #0A0A0C;   /* 형광펜 위 텍스트 — 라이트·다크 공통 */
@@ -132,9 +132,12 @@
   --bg-inverse: #0a0a0c;
 
   --fg-primary:   #0a0a0c;
-  --fg-secondary: #4a4a52;
-  --fg-tertiary:  #86868c;
+  --fg-secondary: #2c2c34;   /* v: contrast↑ for visibility */
+  --fg-tertiary:  #5a5a62;   /* v: contrast↑ for visibility */
   --fg-on-accent: #ffffff;
+  --fg-on-dark-1: #f5f5f7;   /* on dark bg, primary */
+  --fg-on-dark-2: #c8c8d0;   /* on dark bg, secondary */
+  --fg-on-dark-3: #9a9aa2;   /* on dark bg, tertiary */
   --fg-inverse:   #f4f4f6;
 
   --line-soft:   rgba(10,10,12,.08);
@@ -153,8 +156,8 @@
   --bg-inverse: #f4f4f6;
 
   --fg-primary:   #f5f5f7;
-  --fg-secondary: #a8a8b0;
-  --fg-tertiary:  #6e6e76;
+  --fg-secondary: #c8c8d0;   /* v: contrast↑ for visibility */
+  --fg-tertiary:  #9a9aa2;   /* v: contrast↑ for visibility */
   --fg-on-accent: #ffffff;
   --fg-inverse:   #0a0a0c;
 
@@ -257,7 +260,7 @@ img, video, svg { display: block; max-width: 100%; }
   font-weight: 600;
   letter-spacing: var(--tr-wide);
   text-transform: uppercase;
-  color: var(--fg-tertiary);
+  color: var(--fg-secondary); /* v: tertiary→secondary, +contrast both light/dark */
 }
 .display-1 { font-size: var(--fs-d1); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); font-weight: 800; }
 .display-2 { font-size: var(--fs-d2); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); font-weight: 800; }
