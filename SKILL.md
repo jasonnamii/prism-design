@@ -179,6 +179,9 @@ license: Proprietary. Internal use.
 | **섹션 반복** | 같은 구조 2회 이상 ✗. MECE 9 그룹 = *섹션마다 다른 그룹*. 카드 → 다이어그램 → 테이블 → 에디토리얼 순환 |
 | **"못생겨도 되는 영역"** | tables·captions·footnotes·DataTable·Glossary는 decoration ✗. evidence-heavy(Density 4~5)는 *예쁨보다 신뢰감*. `.prism-text`·gradient 적용 ✗ |
 | **모션 카탈로그** | 11분류 50+ 패턴·Apple 어휘·강도 0~5·duration/easing 표·reduced-motion 폴백 — 정답 ✗·*어휘 사전* → `→ references/motion-catalog.md` |
+| **시각효과 카탈로그** | 9 계열 50+ 효과·Apple 10 어휘·조합 레시피 5종·Anti-AI — *어휘 사전·정답 ✗* → `→ references/visual-effects-catalog.md` |
+| **레이아웃 카탈로그** | 10 계열 50+ archetype·Apple 8 패턴·조합 레시피·Anti-Generic·기존 박제 인덱싱 — *어휘 사전·정답 ✗* → `→ references/layout-catalog.md` |
+| **한 페이지 = 다른 레이아웃 mix** | Hero → Explanation → Evidence → Decision → CTA. *같은 archetype 2회 이상 반복 ✗*. 모든 섹션 카드 그리드 ✗ |
 | **모션 강약 분포** | 한 페이지 안 *모든 섹션 같은 강도 ✗*. 1개 섹션만 페이지 최대 강도 N, 2~3개 N-1, 나머지 N-2 이하, 1+ 정적 영역 의무 (Density 3+ 적용) |
 | **AI 평균값 모션 클리셰** | 모든 카드 같은 hover·모든 섹션 같은 fade up·particle·constant gradient·neon glow·cursor follow (진지 문서)·bouncy easing (프리미엄)·blur text reveal — 의미 없는 모션 = 제거 |
 | **reduced-motion 폴백** | 모든 HTML 산출물 `@media (prefers-reduced-motion: reduce)` 의무. parallax·scroll scrub·zoom·3D tilt 비활성화·fade로 대체. 위반 = 접근성 FAIL |
