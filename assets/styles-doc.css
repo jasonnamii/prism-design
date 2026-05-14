@@ -34,7 +34,7 @@
   border: 1px solid var(--line-soft);
   border-radius: var(--r-3);
   padding: 16px 18px;
-  max-width: 220px;
+  max-width: var(--container-thin);
 }
 @media (max-width: 1180px) { .sticky-toc { display: none; } }
 .sticky-toc-h {
@@ -98,7 +98,7 @@
 }
 .cover-period { color: transparent; }
 .cover-sub {
-  max-width: 720px;
+  max-width: var(--container-medium);
   font-size: clamp(20px, 2vw, 28px);
   color: var(--fg-secondary);
   line-height: 1.4;

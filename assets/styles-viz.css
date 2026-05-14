@@ -5,7 +5,7 @@
 
 /* ===================== INSIGHT CARDS ===================== */
 .insight-section { background: var(--bg-canvas); }
-.insight-head { max-width: 720px; }
+.insight-head { max-width: var(--container-medium); }
 .insight-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 16px;
@@ -293,7 +293,7 @@
   display: flex; flex-direction: column; gap: 8px;
   margin-top: 4px;
   width: 100%;
-  max-width: 220px;
+  max-width: var(--container-thin);
 }
 .org-report {
   background: var(--bg-surface);
@@ -313,13 +313,14 @@
 .org-report-role { color: var(--fg-tertiary); margin-left: auto; font-size: 11px; }
 
 @media (max-width: 720px) {
+  /* !important: @media 내 .org-row 강제 단열화 — 상위 inline grid 덮어쓰기용 */
   .org-row { grid-template-columns: 1fr !important; }
   .org-connector-horiz { display: none; }
 }
 
 /* ===================== 2x2 MATRIX ===================== */
 .matrix-section { background: var(--bg-canvas); }
-.matrix-head { max-width: 720px; }
+.matrix-head { max-width: var(--container-medium); }
 .matrix-wrap {
   display: grid;
   grid-template-columns: 32px 1fr;

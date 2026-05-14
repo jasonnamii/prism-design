@@ -5,7 +5,7 @@
 
 /* ===================== STAT GRID ===================== */
 .stats-section { background: var(--bg-canvas); }
-.stats-head { max-width: 720px; margin-bottom: 64px; }
+.stats-head { max-width: var(--container-medium); margin-bottom: 64px; }
 .stats-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px;
@@ -200,7 +200,7 @@
 
 /* ===================== DATA VIZ ===================== */
 .dataviz-section { background: var(--bg-canvas); }
-.dataviz-head { max-width: 720px; }
+.dataviz-head { max-width: var(--container-medium); }
 .dataviz-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -296,7 +296,7 @@
   color: var(--fg-secondary);
   padding-bottom: 0;
   transition: padding var(--dur-med) var(--ease-out);
-  max-width: 720px;
+  max-width: var(--container-medium);
 }
 .faq-row.is-open .faq-a { padding-bottom: 24px; }
 

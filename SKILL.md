@@ -25,7 +25,7 @@ license: Proprietary. Internal use.
 | 4 | **자산 수정 ✗** — `assets/` 19파일은 read-only. 사용자 페이지에서 컴포넌트 조립만 | 시스템 분기·후속 호환 ✗ |
 | 5 | **Pretendard 단일** — Inter·Roboto·system stack 추가 ✗ | 타이포 일관성 |
 | 6 | **C8 액센트 = Cre8orClub 전용** — `--c8`(#39FF14)는 Cre8orClub·크리에이터클럽 컨텍스트에서만. `--grad-prism`에 합성 ✗·일반 페이지 본문 fill ✗·텍스트/CTA/로고마크 액센트만 | 브랜드 의미 보존 |
-| 7 | **형광펜 = `.hl` 클래스만** — `linear-gradient(to top, color 50%, transparent 50%)` 절반 fill 방식 ✗. `box-decoration-break: clone` + `padding: 0.08em 0.32em` + `border-radius: 0.4em` 풀 fill 캡슐만. 다크모드에서도 fill 비비드 유지·텍스트 `var(--hl-ink)` 검정 강제·opacity·투명 처리 ✗ | 가독성·줄바꿈 짤림 방지 |
+| 7 | **형광펜 = `.hl` 클래스만** — `linear-gradient(to top, color 50%, transparent 50%)` 절반 fill 방식 ✗. `box-decoration-break: clone` + `padding: 0 6px` (v2.0 px 고정·세로 0·`.hl-block`=8px·`.hl-tight`=4px) + `border-radius: 999px` 풀 fill 캡슐만. 다크모드에서도 fill 비비드 유지·텍스트 `var(--hl-ink)` 검정 강제·opacity·투명 처리 ✗ | 가독성·줄바꿈 짤림 방지 |
 
 ## §0 INTENT — 의도 결정 (디폴트 자동, 명시 시 override)
 
@@ -241,3 +241,17 @@ license: Proprietary. Internal use.
 헤드라인: 짧다·선언적·균형. **한 줄 한 아이디어.** "혁신적·게임체인저·강력한" ✗·느낌표 ✗.
 
 본문: 단호하나 조용. 한국어는 짧은 문장·과한 합니다체 ✗·의도 번역.
+
+
+## 안전성 · 접근성 (v1.1)
+
+| 항목 | 상태 |
+|---|---|
+| innerHTML | 정적 템플릿만(사용자 입력 0) → XSS-safe. `// SAFE-innerHTML:` 주석 박제 |
+| 외부 CDN | React/Babel/Pretendard 모두 SRI(`integrity` + `crossorigin`) 적용 |
+| `!important` | print.css 미디어쿼리 외부 0건 (tokens.css 자가위반 제거 완료) |
+| 컨테이너 너비 | 880/720/560/220px 매직넘버 → `--container-{wide,medium,narrow,thin}` 토큰화 |
+| `:focus-visible` | 글로벌 outline 박제 (`--focus-ring`, `--focus-ring-offset`) |
+| 키보드 네비 | overlay 컨트롤 `aria-label`·`aria-live` 적용 |
+
+NOT: motion·layout·visual-effects 카탈로그는 별도 스킬에서 관리.

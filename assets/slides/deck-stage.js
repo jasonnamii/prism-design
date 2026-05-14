@@ -811,6 +811,7 @@
       overlay.setAttribute('role', 'toolbar');
       overlay.setAttribute('aria-label', 'Deck controls');
       overlay.setAttribute('data-noncommentable', '');
+      // SAFE-innerHTML: static template only. No user input. XSS-safe.
       overlay.innerHTML = `
         <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>

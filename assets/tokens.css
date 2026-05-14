@@ -52,6 +52,13 @@
   /* density — overridden by tweaks */
   --density: 1;
 
+  /* ---------- CONTAINER WIDTHS ----------
+     본문/카피/도표 컨테이너 최대폭. 기존 880/720/560/220px 매직넘버를 토큰화. */
+  --container-narrow:  560px;   /* 카피·서브헤드 */
+  --container-medium:  720px;   /* 본문·인사이트 */
+  --container-wide:    880px;   /* 섹션 컨테이너 */
+  --container-thin:    220px;   /* 사이드 라벨·미니 카드 */
+
   /* ---------- RADIUS ---------- */
   --r-1:  6px;
   --r-2:  10px;
@@ -212,10 +219,10 @@ img, video, svg { display: block; max-width: 100%; }
 .hl {
   --hl-color: var(--hl-yellow);
   background-color: var(--hl-color);
-  color: var(--hl-ink) !important;
+  color: var(--hl-ink);
   -webkit-text-fill-color: var(--hl-ink);
-  padding: 0.08em 0.32em;
-  border-radius: 0.4em;
+  padding: 0 6px;
+  border-radius: 999px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   font-weight: inherit;
@@ -228,10 +235,10 @@ img, video, svg { display: block; max-width: 100%; }
 .hl-blue   { --hl-color: var(--hl-blue); }
 
 /* tight 변형 — 작은 폰트·인라인 본문용. 패딩만 축소 */
-.hl-tight { padding: 0.04em 0.24em; border-radius: 0.3em; }
+.hl-tight { padding: 0 4px; border-radius: 999px; }
 
 /* block 변형 — 블록 헤드라인용. 패딩·라운드 확장 */
-.hl-block { padding: 0.12em 0.48em; border-radius: 0.5em; }
+.hl-block { padding: 0 8px; border-radius: 999px; }
 
 /* ---------- UTILITY: container ---------- */
 .container {
@@ -333,4 +340,17 @@ html { scroll-behavior: smooth; }
 .reveal.in {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* ---------- ACCESSIBILITY — :focus-visible ----------
+   키보드 포커스 전용. 마우스 클릭은 outline 표시 ✗ (focus-visible). */
+:root {
+  --focus-ring:        2px solid var(--prism-1);
+  --focus-ring-offset: 2px;
+}
+*:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: 4px;
 }
