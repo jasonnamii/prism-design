@@ -354,3 +354,43 @@ html { scroll-behavior: smooth; }
   outline-offset: var(--focus-ring-offset);
   border-radius: 4px;
 }
+
+
+/* ---------- VIBRANT PALETTE 25 ----------
+   uploads/6768f29a 박제. 액센트·culture 보조용.
+   prism 헌법(무채색+--prism-1~6 액센트)은 유지.
+   --v-*는 페이지당 1개 signal 또는 1회 gradient culture에만 사용. */
+:root {
+  --v-electric-blue: #00ffff;
+  --v-hot-pink:      #ff69b4;
+  --v-lime:          #32cd32;
+  --v-magenta:       #ff00ff;
+  --v-neon-orange:   #ff6700;
+  --v-purple:        #9400d3;
+  --v-coral:         #ff7f50;
+  --v-cyan:          #00ffff;
+  --v-gold:          #ffd700;
+  --v-crimson:       #dc143c;
+  --v-turquoise:     #40e0d0;
+  --v-violet:        #8a2be2;
+  --v-azure:         #007fff;
+  --v-scarlet:       #ff2400;
+  --v-emerald:       #50c878;
+  --v-ruby:          #e0115f;
+  --v-sapphire:      #0f52ba;
+  --v-amber:         #ffbf00;
+  --v-indigo:        #4b0082;
+  --v-jade:          #00a86b;
+  --v-aqua:          #00ffff;
+  --v-cobalt:        #0047ab;
+  --v-fuchsia:       #ff00ff;
+  --v-chartreuse:    #7fff00;
+  --v-teal:          #008080;
+  --v-gradient: linear-gradient(95deg,
+    var(--v-electric-blue) 0%,
+    var(--v-azure) 20%,
+    var(--v-violet) 40%,
+    var(--v-magenta) 60%,
+    var(--v-scarlet) 80%,
+    var(--v-neon-orange) 100%);
+}

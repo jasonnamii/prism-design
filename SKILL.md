@@ -15,6 +15,27 @@ license: Proprietary. Internal use.
 
 장문 산출물·키노트 덱·마케팅 페이지를 1턴에 조립하는 디자인시스템 엔진. 무채색 베이스 + 프리즘 그라디언트 액센트.
 
+
+## Skill Boundaries
+
+- **하는 것** — Prism 디자인시스템 호출·조립 엔진.
+- **안 하는 것** — 1page 강도·H1~H13(→apple-canvas), 단일화면UI(→ui-designer), .md div(→html-div-style), 글본문(→shaper-skill), BP구조(→bp-guide), 사업전략(→biz-skill), 카피(→copywriting-skill), 단일프레임 본질압축(→visualize-skill), 대시보드·관리자UI ✗.
+
+## When to Use
+
+- 사용자가 "만들어줘", "조립해줘", "디자인해줘", "페이지만들어줘", "보고서디자인" 같은 표현으로 발동
+- 장문 보고서 출고시, 키노트 덱 작성시, 제품 마케팅 페이지 빌드시, IR 내러티브, 릴리즈노트 페이지 시.
+- **안 쓸 때** — 1page 강도·H1~H13(→apple-canvas), 단일화면UI(→ui-designer), .md div(→html-div-style), 글본문(→shaper-skill), BP구조(→bp-guide), 사업전략(→biz-skill), 카피(→copywriting-skill), 단일프레임 본질압축(→visualize-skill), 대시보드·관리자UI ✗.
+
+
+## Prerequisites
+
+| # | 체크 | 미충족 시 |
+|---|------|-----------|
+| 1 | 대상·입력 명확 (스킬 발동 의도 확인) | 1줄 확인 후 진입 |
+| 2 | references/ 폴더 접근 가능 | inline fallback |
+
+
 ## ⛔ 절대규칙 5
 
 | # | 룰 | 위반 시 |
@@ -159,7 +180,40 @@ license: Proprietary. Internal use.
 **확장 절차 (새 섹션):**
 `→ references/extend.md` (i18n key mirror·sections-*.jsx 등록·styles-*.css `===== SECTION =====` 블록·app.jsx mount 6단계)
 
-## Gotchas
+## Output Path
+
+| 산출물 | 경로 |
+|---|---|
+| 주 산출물 | `mnt/outputs/prism-design_{topic}_{YYYY-MM-DD}.md` |
+| 형식 | .html로, prism으로. |
+| 리서치 결과 (해당 시) | `{VAULT}/_skills research/prism-design/{YYYY-MM-DD}_{topic}.md` |
+
+## Reference Index
+
+| 파일 | 내용 | 언제 |
+|---|---|---|
+| `references/build-recipe.md` | build recipe | 해당 단계 진입 시 |
+| `references/extend.md` | extend | 해당 단계 진입 시 |
+| `references/layout-catalog.md` | layout catalog | 해당 단계 진입 시 |
+| `references/mece-catalog.md` | mece catalog | 해당 단계 진입 시 |
+| `references/mece-doctrine.md` | mece doctrine | 해당 단계 진입 시 |
+| `references/motion-catalog.md` | motion catalog | 해당 단계 진입 시 |
+| `references/non-negotiable.md` | non negotiable | 해당 단계 진입 시 |
+| `references/visual-effects-catalog.md` | visual effects catalog | 해당 단계 진입 시 |
+| `references/voice-tone.md` | voice tone | 해당 단계 진입 시 |
+
+
+## Next Phase
+
+본 스킬 작업 후 자연스럽게 이어지는 흐름:
+
+- 후속 작업 → `apple-canvas`
+- 후속 작업 → `ui-designer`
+- 후속 작업 → `html-div-style`
+- 후속 작업 → `shaper-skill`
+- 후속 작업 → `bp-guide`
+
+## Failure Modes (Gotchas)
 
 | 함정 | 대응 |
 |---|---|
@@ -230,8 +284,8 @@ license: Proprietary. Internal use.
 | ground | `--bg-canvas`·`--bg-surface`·`--bg-sunken` (무채색) |
 | text | `--fg-primary`·`--fg-secondary`·`--fg-tertiary`·`--fg-on-dark-*` |
 | authority | `--fg-primary` (검정 본문) |
-| signal | `--c8`·`--prism-3` 등 (페이지당 1개·솔리드) |
-| culture | `--prism-1~6` gradient·`--hl-*` 형광펜 5색 |
+| signal | `--c8`·`--prism-3`·`--v-*` 25색 중 1개 (페이지당 1개·솔리드) |
+| culture | `--prism-1~6` gradient·`--hl-*` 형광펜 5색·**Vibrant 25 (`--v-*` / `--v-gradient` 1회)** |
 | depth | `--line-soft`·`--bg-sunken`·`--bg-elev` |
 
 → "예쁜 색"이 아니라 *역할*로 선택. signal은 페이지당 1개. culture는 gradient/형광펜 — strip 패턴만.
