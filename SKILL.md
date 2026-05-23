@@ -1,10 +1,10 @@
 ---
 name: prism-design
 description: |
-  Prism 디자인시스템 호출·조립 엔진. 무채색+프리즘 액센트로 장문보고서·키노트덱·랜딩·white paper·model card·release notes 산출. 9 MECE×40+ 컴포넌트·Pretendard·EN/KO. 진단·생성 2모드.
-  P1: 프리즘디자인, prism, 프리즘, 프리즘시스템, 장문보고서, long-scroll, 키노트덱, keynote deck, deck stage, 슬라이드덱, 랜딩페이지, white paper, model card, release notes, MECE divider, Pretendard, prism-text, 그라디언트액센트, bento, sticky showcase, edu menu, hero, KPI, pull quote, 무채색디자인, 9MECE, 한장보고서, 부팅골격, samples 골격, voice-tone, mece-doctrine, 모션카탈로그, motion, reduced-motion, 접근성.
-  P2: 만들어줘, 조립해줘, 디자인해줘, 페이지만들어줘, 보고서디자인, 랜딩만들어줘, 덱만들어줘, build, assemble, design report, create landing.
-  P3: long-scroll document, marketing landing, keynote deck, white paper, model card, release notes, prism design, bilingual EN-KO.
+  Prism 디자인시스템. 무채색+프리즘 액센트·9 MECE×40+ 컴포넌트·Pretendard·EN/KO. 2 VOLUME×2 MODE. 디폴트=STANDARD(액센트≤10%·gradient ✗·hairline). 명시호출=AMPED(키노트 덱·풀필·gradient≤1회). 채도 신성불가침 S≥90%.
+  P1: 프리즘디자인, prism, 프리즘, 프리즘시스템, 장문보고서, long-scroll, 키노트덱, keynote deck, deck stage, 슬라이드덱, 랜딩페이지, white paper, model card, release notes, MECE divider, Pretendard, prism-text, bento, STANDARD, AMPED, 스탠다드, 앰프드, hero, KPI, 9MECE, samples 골격, voice-tone, mece-doctrine, motion, reduced-motion, 접근성.
+  P2: 만들어줘, 조립해줘, 디자인해줘, 페이지만들어줘, 보고서디자인, 랜딩만들어줘, 덱만들어줘, build, AMPED로, 강하게, 키노트로.
+  P3: long-scroll document, keynote deck, white paper, prism design, EN-KO, STANDARD volume, AMPED volume, vivid saturation inviolable.
   P4: 장문 보고서 출고시, 키노트 덱 작성시, 제품 마케팅 페이지 빌드시, IR 내러티브, 릴리즈노트 페이지 시.
   P5: .html로, prism으로.
   NOT: 1page 강도·H1~H13(→apple-canvas), 단일화면UI(→ui-designer), .md div(→html-div-style), 글본문(→shaper-skill), BP구조(→bp-guide), 사업전략(→biz-skill), 카피(→copywriting-skill), 단일프레임 본질압축(→visualize-skill), 대시보드·관리자UI ✗.
@@ -261,6 +261,27 @@ h1, h2, h3, h4, .title, .subtitle, .pull-quote {
 
 ---
 
+
+
+## ⓥ VOLUME — STANDARD vs AMPED (v260523 신설)
+
+| 볼륨 | 본질 | 호출 | 채도·면적 |
+|---|---|---|---|
+| **STANDARD ★ (디폴트)** | 무채색 + 프리즘 액센트 미니멀·장문 문서·white paper 정본 | 호출만 / "standard로·문서로·white paper로" | 액센트 ≤10%·gradient 0회·hairline |
+| **AMPED** | 프리즘 액센트 풀색·bento 풀필·gradient·키노트 덱 | "AMPED로·강하게·키노트로·덱으로" | 액센트 ≤30%·gradient ≤1회·풀필 hero/KPI |
+
+**채도 신성불가침 (양 볼륨 공통):** S≥90%·L 40~60%. 파스텔/머디/뮤트 ✗. AMPED라도 채도 죽이는 opacity·color-mix(white) 절대 ✗.
+
+**토큰 SSOT:** `assets/tokens.css` `[data-volume="standard"]`(디폴트)·`[data-volume="amped"]` 셀렉터로 자동 분기.
+
+**QC 자동 검증:**
+```bash
+bash scripts/qc.sh <HTML_FILE>
+```
+
+→ STANDARD인데 gradient 있음 · AMPED인데 gradient 2회+ · 채도 죽임 · MECE 미준수 grep.
+
+---
 ## Failure Modes (Gotchas)
 
 | 함정 | 대응 |

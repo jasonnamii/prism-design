@@ -394,3 +394,38 @@ html { scroll-behavior: smooth; }
     var(--v-scarlet) 80%,
     var(--v-neon-orange) 100%);
 }
+
+
+/* ============================================================
+   VOLUME — STANDARD vs AMPED (v260523 신설)
+   STANDARD = 디폴트·문서·white paper. AMPED = 키노트 덱·강도 ↑.
+   채도(S≥90%)는 양 볼륨 불변. 면적·gradient 허용량만 다름.
+   ============================================================ */
+
+/* STANDARD — 디폴트 (명시 ✗·자동 적용) */
+:root, [data-volume="standard"] {
+  --accent-area-max:    0.10;   /* 액센트 면적 ≤10% */
+  --gradient-allowed:   0;      /* gradient 0회 */
+  --hero-fill:          hairline;
+  --kpi-fill:           hairline;
+}
+
+/* AMPED — 강도 ↑ */
+[data-volume="amped"] {
+  --accent-area-max:    0.30;   /* 액센트 면적 ≤30% */
+  --gradient-allowed:   1;      /* gradient 페이지당 ≤1회 */
+  --hero-fill:          solid;
+  --kpi-fill:           solid;
+  --bento-color-cells:  2;      /* bento 풀필 ≤2칸 */
+}
+
+/* AMPED 모드 hero 풀필 활성화 */
+[data-volume="amped"] .hero-fill {
+  background: var(--grad-prism, linear-gradient(135deg, var(--accent-pink), var(--accent-blue)));
+  color: var(--surface-on-accent, #fff);
+}
+
+[data-volume="amped"] .kpi-fill {
+  background: var(--accent);
+  color: var(--surface-on-accent, #fff);
+}
