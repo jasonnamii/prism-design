@@ -287,11 +287,11 @@ Collage → Social Proof → Landing Funnel CTA
 
 | 카탈로그 archetype | 상세 박제 |
 |---|---|
-| Bento·Card Stack·Feature-Benefit (9 MECE 그룹화 본질) | `→ references/mece-doctrine.md` (9 MECE 원칙·확장 6단계) |
-| 9 MECE 컴포넌트 목록 | `→ references/mece-catalog.md` |
+| Bento·Card Stack·Feature-Benefit (9 MECE 그룹화 본질) | `→ references/mece.md` (9 MECE 원칙·확장 6단계) |
+| 9 MECE 컴포넌트 목록 | `→ references/mece.md` |
 | 빌드 레시피 | `→ references/build-recipe.md` |
-| 비협상 룰 | `→ references/non-negotiable.md` |
-| 톤 (헤드라인·본문 voice) | `→ references/voice-tone.md` |
+| 비협상 룰 | `→ references/voice.md` |
+| 톤 (헤드라인·본문 voice) | `→ references/voice.md` |
 
 → prism의 9 MECE = archetype의 *컴포넌트 그룹화*. 두 층위 *병행*.
 

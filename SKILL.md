@@ -68,12 +68,12 @@ license: Proprietary. Internal use.
 
 **진입:** 자료 파악(목차·섹션 수·언어) → 모드 결정(진단·생성) → MECE 그룹 매핑 → 컴포넌트 선택 → 부팅 골격 선택(`samples/` 5종 또는 `slides/` 키노트) → index.html 부팅.
 
-**카피 작성 시 voice-tone 정본 강제:** 헤드라인·본문·CTA 작성 직전 `→ references/voice-tone.md` 1회 통과. hype 어휘·느낌표·emoji 적발 = 재작성.
+**카피 작성 시 voice-tone 정본 강제:** 헤드라인·본문·CTA 작성 직전 `→ references/voice.md` 1회 통과. hype 어휘·느낌표·emoji 적발 = 재작성.
 
 ## §B 9 MECE 라우팅표 (compressed)
 
-`→ references/mece-doctrine.md` (전체 카탈로그·use-when·금기·확장 6단계 — NEW 정본 흡수)
-`→ references/mece-catalog.md` (요약 카탈로그)
+`→ references/mece.md` (전체 카탈로그·use-when·금기·확장 6단계 — NEW 정본 흡수)
+`→ references/mece.md` (요약 카탈로그)
 
 | 그룹 | 용도 | 핵심 컴포넌트 |
 |---|---|---|
@@ -117,8 +117,8 @@ license: Proprietary. Internal use.
 
 ## §D 비협상 룰 (자산 룰 박제)
 
-`→ references/non-negotiable.md` (자산 룰 전체)
-`→ references/voice-tone.md` (카피·톤·아이코노그래피 — NEW 정본 흡수)
+`→ references/voice.md` (자산 룰 전체)
+`→ references/voice.md` (카피·톤·아이코노그래피 — NEW 정본 흡수)
 
 **핵심 5축:**
 - **Type:** Pretendard Variable 단일·display clamp 64-144px·`--tr-tight: -0.035em`·body 17px
@@ -195,12 +195,12 @@ license: Proprietary. Internal use.
 | `references/build-recipe.md` | build recipe | 해당 단계 진입 시 |
 | `references/extend.md` | extend | 해당 단계 진입 시 |
 | `references/layout-catalog.md` | layout catalog | 해당 단계 진입 시 |
-| `references/mece-catalog.md` | mece catalog | 해당 단계 진입 시 |
-| `references/mece-doctrine.md` | mece doctrine | 해당 단계 진입 시 |
+| `references/mece.md` | mece catalog | 해당 단계 진입 시 |
+| `references/mece.md` | mece doctrine | 해당 단계 진입 시 |
 | `references/motion-catalog.md` | motion catalog | 해당 단계 진입 시 |
-| `references/non-negotiable.md` | non negotiable | 해당 단계 진입 시 |
+| `references/voice.md` | non negotiable | 해당 단계 진입 시 |
 | `references/visual-effects-catalog.md` | visual effects catalog | 해당 단계 진입 시 |
-| `references/voice-tone.md` | voice tone | 해당 단계 진입 시 |
+| `references/voice.md` | voice tone | 해당 단계 진입 시 |
 
 
 ## Next Phase
