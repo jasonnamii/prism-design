@@ -45,7 +45,7 @@ fi
 
 # MECE divider — 9그룹 정합 (간이 검사)
 MECE=$(grep -c 'data-mece\|class="mece' "$HTML" || true)
-echo "ℹ MECE divider $MECE개"
+[ "$MECE" -gt 0 ] && echo "MECE divider: $MECE"
 
 # 접근성
 grep -q 'prefers-reduced-motion' "$HTML" || echo "⚠ reduced-motion 폴백 누락"

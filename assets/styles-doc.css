@@ -99,7 +99,7 @@
 .cover-period { color: transparent; }
 .cover-sub {
   max-width: var(--container-medium);
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(20px, 1.5rem, 28px);
   color: var(--fg-secondary);
   line-height: 1.4;
   margin-top: 32px;
@@ -142,14 +142,14 @@
 }
 .chapter-num {
   font-family: var(--font-display);
-  font-size: clamp(64px, 10vw, 144px);
+  font-size: clamp(64px, 7rem, 144px);
   font-weight: 800;
   letter-spacing: var(--tr-tight);
   line-height: 1;
   margin-bottom: 24px;
 }
 .chapter-title {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(40px, 4rem, 72px);
   font-weight: 700;
   letter-spacing: var(--tr-tight);
   margin: 0 0 16px;

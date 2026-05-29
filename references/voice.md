@@ -120,7 +120,7 @@ Confident · technical · lightly poetic. 사실을 짧게 전달하고 이동. 
 - **Pretendard Variable** 단일. Inter·Roboto·시스템 스택 ✗
 - Display 사이즈 **enormous** (clamp 64-144px). Hero = `display-1`·섹션 opener = `display-3`
 - 한국어·영어 동일 스케일 — Pretendard가 둘 다 처리
-- Letter-spacing 큰 사이즈에서 tight (`--tr-tight: -0.035em`). 절대 loose 화 ✗
+- Letter-spacing은 기본 0. 작은 양수 메타 라벨만 예외.
 - Body `--fs-body: 17px`·`--lh-body: 1.5`. 더 작게 ✗
 
 ```css

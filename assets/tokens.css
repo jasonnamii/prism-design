@@ -30,9 +30,9 @@
   --lh-body:  1.5;
   --lh-loose: 1.7;
 
-  --tr-tight: -0.035em;
-  --tr-snug:  -0.022em;
-  --tr-body:  -0.011em;
+  --tr-tight: 0;
+  --tr-snug:  0;
+  --tr-body:  0;
   --tr-wide:  0.04em;
 
   /* ---------- SPACING ---------- */

@@ -357,7 +357,7 @@
 .sticky-num.active { opacity: 1; }
 .sticky-stage-content { position: relative; }
 .sticky-stage-headline {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(36px, 3rem, 56px);
   font-weight: 800;
   letter-spacing: var(--tr-tight);
   line-height: 1.1;
