@@ -222,4 +222,92 @@ function Matrix2x2({ copy }) {
   );
 }
 
-window.PRISM_VIZ = { InsightCards, Roadmap, Flowchart, Funnel, OrgChart, Matrix2x2 };
+/* ============== v2.0 신규 (레거시 호환 JSX 병행본) ==============
+   1급 산출 경로는 references/snippets-static.html의 정적 스니펫입니다.
+   아래 JSX는 기존 JSX 라이브러리 사용자를 위한 옵션입니다. ============== */
+
+/* BranchFlow — 분기 플로우차트. copy: { start, decision, yes, no } */
+function BranchFlow({ copy }) {
+  return (
+    <section className="section branchflow-section">
+      <div className="container">
+        <Reveal>
+          <div className="branchflow">
+            <div className="bf-node"><span className="bf-node-k">START</span><span className="bf-node-h">{copy.start}</span></div>
+            <div className="bf-connector" />
+            <div className="bf-decision"><span className="bf-decision-h">{copy.decision}</span></div>
+            <div className="bf-branches">
+              <div className="bf-branch"><span className="bf-label">YES</span><div className="bf-node"><span className="bf-node-k">PATH A</span><span className="bf-node-h">{copy.yes}</span></div></div>
+              <div className="bf-branch"><span className="bf-label">NO</span><div className="bf-node"><span className="bf-node-k">PATH B</span><span className="bf-node-h">{copy.no}</span></div></div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* Sequence — 시퀀스. copy: { actors:[], messages:[{label, accent, back}] } */
+function Sequence({ copy }) {
+  const cols = copy.actors.length;
+  return (
+    <section className="section sequence-section">
+      <div className="container">
+        <Reveal>
+          <div className="sequence" style={{ "--cols": cols }}>
+            <div className="seq-actors">{copy.actors.map((a, i) => <div key={i} className="seq-actor">{a}</div>)}</div>
+            <div className="seq-lanes">
+              {copy.actors.map((a, i) => <div key={i} className="seq-lane" />)}
+              <div className="seq-messages">
+                {copy.messages.map((m, i) => (
+                  <div key={i} className={`seq-msg${m.accent ? " accent" : ""}${m.back ? " back" : ""}`}><span className="seq-msg-label">{m.label}</span></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* Pipeline — 입력→가공→출력. copy: { stages:[{k, h, p, accent}] } */
+function Pipeline({ copy }) {
+  return (
+    <section className="section pipeline-section">
+      <div className="container">
+        <div className="pipeline">
+          {copy.stages.map((s, i) => (
+            <Reveal key={i} delay={i * 60} className={`pl-stage${s.accent ? " accent" : ""}`}>
+              <span className="pl-stage-k">{s.k}</span><span className="pl-stage-h">{s.h}</span><span className="pl-stage-p">{s.p}</span>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Gantt — 간트. copy: { units, ticks:[], rows:[{task, start, span, now}] } */
+function Gantt({ copy }) {
+  return (
+    <section className="section gantt-section">
+      <div className="container">
+        <div className="gantt" style={{ "--units": copy.units }}>
+          <div className="gantt-head">
+            <div className="gantt-task">작업</div>
+            <div className="gantt-scale">{copy.ticks.map((t, i) => <span key={i} className="gantt-tick">{t}</span>)}</div>
+          </div>
+          {copy.rows.map((r, i) => (
+            <Reveal key={i} delay={i * 60} className="gantt-row">
+              <div className="gantt-task">{r.task}</div>
+              <div className="gantt-track"><div className={`gantt-bar${r.now ? " now" : ""}`} style={{ "--start": r.start, "--span": r.span }} /></div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+window.PRISM_VIZ = { InsightCards, Roadmap, Flowchart, Funnel, OrgChart, Matrix2x2, BranchFlow, Sequence, Pipeline, Gantt };

@@ -426,3 +426,350 @@
   .matrix-grid { min-height: 600px; }
   .matrix-y-label { font-size: 10px; }
 }
+
+/* ============================================================
+   v2.0 신규 패밀리 — 정적 HTML 스니펫 전용 (기존 블록 보존)
+   프리즘 시그니처: 무채색 헤어라인 구조 + 프리즘 액센트 1곳.
+   다크/라이트·reduced-motion·모바일 단열 대응.
+   ============================================================ */
+
+/* ===================== FLOW · BranchFlow (분기 플로우차트) ===================== */
+.branchflow-section { background: var(--bg-canvas); }
+.branchflow {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0;
+}
+.bf-node {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-3);
+  padding: 16px 22px;
+  min-width: 220px;
+  text-align: center;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.bf-node-k {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: var(--tr-wide);
+  text-transform: uppercase; color: var(--fg-tertiary);
+}
+.bf-node-h { font-size: 16px; font-weight: 700; letter-spacing: var(--tr-snug); }
+/* 데시전 다이아몬드 — 프리즘 보더 1.5px, 이 컴포넌트의 유일한 프리즘 자리 */
+.bf-decision {
+  width: 180px; height: 180px;
+  display: grid; place-items: center;
+  transform: rotate(45deg);
+  border: 1.5px solid transparent;
+  background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+              var(--grad-prism) border-box;
+  border-radius: var(--r-2);
+  margin: 4px 0;
+}
+.bf-decision > * { transform: rotate(-45deg); text-align: center; }
+.bf-decision-h { font-size: 15px; font-weight: 700; max-width: 150px; }
+.bf-connector { width: 1px; height: 28px; background: var(--line-medium); }
+.bf-branches {
+  display: flex; gap: 48px; align-items: flex-start; justify-content: center;
+  position: relative; padding-top: 28px; width: 100%;
+}
+.bf-branches::before {
+  content: ""; position: absolute; top: 0; left: 25%; right: 25%;
+  height: 1px; background: var(--line-medium);
+}
+.bf-branch { display: flex; flex-direction: column; align-items: center; gap: 0; position: relative; }
+.bf-branch::before {
+  content: ""; position: absolute; top: -28px; left: 50%;
+  width: 1px; height: 28px; background: var(--line-medium);
+}
+.bf-label {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tr-wide); text-transform: uppercase;
+  color: var(--fg-tertiary); margin-bottom: 8px;
+}
+@media (max-width: 720px) {
+  .bf-branches { flex-direction: column; gap: 28px; }
+  .bf-branches::before { display: none; }
+}
+
+/* ===================== FLOW · Sequence (시퀀스 다이어그램) ===================== */
+.sequence-section { background: var(--bg-sunken); }
+.sequence {
+  display: grid;
+  gap: 0;
+  position: relative;
+  padding-top: 8px;
+}
+.seq-actors {
+  display: grid;
+  grid-auto-flow: column; grid-auto-columns: 1fr;
+  gap: 0;
+}
+.seq-actor {
+  text-align: center;
+  font-size: 14px; font-weight: 700;
+  padding: 12px 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-2);
+  background: var(--bg-surface);
+}
+.seq-lanes {
+  display: grid;
+  grid-auto-flow: column; grid-auto-columns: 1fr;
+  position: relative;
+  min-height: 220px;
+  margin-top: 8px;
+}
+.seq-lane { position: relative; }
+.seq-lane::before {
+  content: ""; position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background-image: linear-gradient(var(--line-medium) 50%, transparent 0);
+  background-size: 1px 8px;
+  background-repeat: repeat-y;
+}
+.seq-messages {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; gap: 28px;
+  padding-top: 16px;
+}
+.seq-msg {
+  position: relative;
+  height: 1px; background: var(--line-strong);
+  margin: 0 calc(50% / var(--cols, 2));
+}
+.seq-msg.accent { background: var(--grad-prism); height: 1.5px; }
+.seq-msg-label {
+  position: absolute; top: -16px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tr-wide); color: var(--fg-secondary);
+}
+.seq-msg::after {
+  content: "▶"; position: absolute; right: -2px; top: -6px;
+  font-size: 9px; color: var(--fg-tertiary);
+}
+.seq-msg.back::after { content: "◀"; right: auto; left: -2px; }
+@media (max-width: 720px) {
+  .seq-lanes, .seq-actors { grid-auto-columns: minmax(90px, 1fr); }
+}
+
+/* ===================== FLOW · Pipeline (입력→가공→출력) ===================== */
+.pipeline-section { background: var(--bg-canvas); }
+.pipeline {
+  display: flex; align-items: stretch; gap: 0; flex-wrap: wrap;
+}
+.pl-stage {
+  flex: 1 1 0; min-width: 150px;
+  background: var(--bg-surface);
+  border: 1px solid var(--line-soft);
+  padding: 22px 26px 22px 32px;
+  position: relative;
+  display: flex; flex-direction: column; gap: 6px;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
+  margin-left: -14px;
+}
+.pl-stage:first-child { margin-left: 0; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); border-radius: var(--r-2) 0 0 var(--r-2); }
+.pl-stage:last-child  { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%); border-radius: 0 var(--r-2) var(--r-2) 0; }
+/* 핵심 스테이지 1곳만 프리즘 보더-탑 */
+.pl-stage.accent { border-top: 2px solid transparent; background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box; }
+.pl-stage-k {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-tertiary);
+}
+.pl-stage-h { font-size: 16px; font-weight: 700; letter-spacing: var(--tr-snug); }
+.pl-stage-p { font-size: 13px; color: var(--fg-secondary); line-height: 1.4; }
+@media (max-width: 720px) {
+  .pipeline { flex-direction: column; }
+  .pl-stage, .pl-stage:first-child, .pl-stage:last-child {
+    clip-path: none; margin-left: 0; margin-top: -1px; border-radius: 0;
+  }
+}
+
+/* ===================== HIERARCHY · Tree (다분기 트리) ===================== */
+.tree-section { background: var(--bg-sunken); }
+.tree { list-style: none; margin: 0; padding: 0; }
+.tree ul { list-style: none; margin: 0; padding-left: 28px; }
+.tree li { position: relative; padding: 6px 0; }
+.tree li::before {
+  content: ""; position: absolute;
+  left: -16px; top: 0; bottom: 50%;
+  width: 1px; background: var(--line-medium);
+}
+.tree li::after {
+  content: ""; position: absolute;
+  left: -16px; top: 50%;
+  width: 14px; height: 1px; background: var(--line-medium);
+}
+.tree > li::before, .tree > li::after { display: none; }
+.tree li:last-child::before { bottom: auto; height: 50%; }
+.tree-node {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-2);
+  padding: 8px 14px;
+  font-size: 14px;
+}
+.tree-node.root {
+  font-weight: 700; font-size: 15px;
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box;
+}
+.tree-node-k { font-family: var(--font-mono); font-size: 11px; color: var(--fg-tertiary); }
+
+/* ===================== HIERARCHY · LayerStack (레이어 적층) ===================== */
+.layerstack-section { background: var(--bg-canvas); }
+.layerstack { display: flex; flex-direction: column; gap: 1px; background: var(--line-medium); border: 1px solid var(--line-medium); border-radius: var(--r-3); overflow: hidden; }
+.ls-layer {
+  background: var(--bg-surface);
+  display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 16px;
+  padding: 18px 24px;
+}
+.ls-layer.top { border-top: 2px solid transparent; background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box; }
+.ls-idx { font-family: var(--font-mono); font-size: 13px; color: var(--fg-tertiary); }
+.ls-body { display: flex; flex-direction: column; gap: 2px; }
+.ls-h { font-size: 16px; font-weight: 700; letter-spacing: var(--tr-snug); }
+.ls-p { font-size: 13px; color: var(--fg-secondary); }
+.ls-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-tertiary); }
+
+/* ===================== HIERARCHY · PyramidShape (삼각형 clip-path) ===================== */
+.pyramidshape-section { background: var(--bg-sunken); }
+.pyramidshape { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.ps-figure {
+  width: min(440px, 100%); aspect-ratio: 1.6 / 1;
+  display: flex; flex-direction: column; gap: 1px;
+}
+.ps-slice {
+  flex: 1; background: var(--bg-surface);
+  border: 1px solid var(--line-soft);
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 12px; color: var(--fg-secondary);
+  clip-path: polygon(var(--l, 0%) 0, var(--r, 100%) 0, 100% 100%, 0 100%);
+  margin: 0 auto; width: 100%;
+}
+/* 정점 슬라이스만 프리즘 fill */
+.ps-slice.apex { background: var(--grad-prism); color: #fff; border: none; }
+.ps-legend { display: flex; flex-direction: column; gap: 12px; min-width: 200px; }
+.ps-legend-row { display: flex; align-items: baseline; gap: 10px; font-size: 14px; }
+.ps-legend-k { font-family: var(--font-mono); font-size: 11px; color: var(--fg-tertiary); min-width: 28px; }
+
+/* ===================== TIME · Gantt (간트 막대) ===================== */
+.gantt-section { background: var(--bg-canvas); }
+.gantt { display: flex; flex-direction: column; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--r-3); overflow: hidden; }
+.gantt-head, .gantt-row {
+  display: grid; grid-template-columns: 180px 1fr; align-items: center;
+  background: var(--bg-surface);
+}
+.gantt-head { background: var(--bg-sunken); }
+.gantt-scale { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+.gantt-tick {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide);
+  text-transform: uppercase; color: var(--fg-tertiary);
+  padding: 10px 8px; border-left: 1px solid var(--line-soft); text-align: center;
+}
+.gantt-task { font-size: 14px; font-weight: 600; padding: 14px 18px; }
+.gantt-track {
+  position: relative; height: 44px;
+  display: grid; grid-template-columns: repeat(var(--units, 8), 1fr);
+  align-items: center;
+}
+.gantt-bar {
+  grid-column: var(--start, 1) / span var(--span, 2);
+  height: 22px; border-radius: var(--r-1);
+  background: var(--bg-sunken); border: 1px solid var(--line-medium);
+  margin: 0 4px;
+}
+/* 현재 진행 작업 1개만 프리즘 보더 */
+.gantt-bar.now { border: 1.5px solid transparent; background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box; }
+@media (max-width: 720px) {
+  .gantt-head, .gantt-row { grid-template-columns: 110px 1fr; }
+}
+
+/* ===================== DISTRIBUTION · PositionMap (점 산포) ===================== */
+.positionmap-section { background: var(--bg-sunken); }
+.positionmap-wrap { display: grid; grid-template-columns: 32px 1fr; grid-template-rows: 1fr 32px; gap: 12px; }
+.pm-field {
+  grid-row: 1; grid-column: 2;
+  position: relative; aspect-ratio: 1.3 / 1;
+  border: 1px solid var(--line-medium); border-radius: var(--r-3);
+  background:
+    linear-gradient(var(--line-soft), var(--line-soft)) center / 1px 100% no-repeat,
+    linear-gradient(var(--line-soft), var(--line-soft)) center / 100% 1px no-repeat,
+    var(--bg-surface);
+}
+.pm-dot {
+  position: absolute;
+  left: calc(var(--x) * 1%); top: calc((100 - var(--y)) * 1%);
+  transform: translate(-50%, -50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 1.5px solid var(--line-strong); background: var(--bg-surface);
+}
+.pm-dot.key { border: none; background: var(--grad-prism); width: 16px; height: 16px; }
+.pm-dot-label {
+  position: absolute; left: 50%; top: calc(100% + 4px);
+  transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-secondary);
+  white-space: nowrap;
+}
+.pm-y-label, .pm-x-label {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide);
+  text-transform: uppercase; color: var(--fg-tertiary);
+}
+.pm-y-label { grid-row: 1; grid-column: 1; writing-mode: vertical-rl; transform: rotate(180deg); }
+.pm-x-label { grid-row: 2; grid-column: 2; }
+
+/* ===================== DISTRIBUTION · Heatmap (격자 강도) ===================== */
+.heatmap-section { background: var(--bg-canvas); }
+.heatmap-wrap { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+.heatmap {
+  display: grid; gap: 2px;
+  grid-template-columns: auto repeat(var(--cols, 5), 1fr);
+  flex: 1; min-width: 280px;
+}
+.hm-corner, .hm-colh, .hm-rowh { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-tertiary); display: grid; place-items: center; padding: 6px; }
+.hm-rowh { justify-content: flex-end; padding-right: 10px; }
+.hm-cell {
+  aspect-ratio: 1.6 / 1; min-height: 40px;
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+  color: var(--fg-primary);
+  border-radius: var(--r-1);
+  /* --v 0~1 → bg-sunken 단계 음영 */
+  background: color-mix(in oklch, var(--fg-primary) calc(var(--v, 0) * 16%), var(--bg-sunken));
+}
+.hm-cell[style*="--v: 0."] { color: var(--fg-primary); }
+/* 최고값 셀 1개만 프리즘 보더 */
+.hm-cell.peak { border: 1.5px solid transparent; background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box; }
+.heatmap-legend { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-tertiary); min-width: 120px; }
+.hm-legend-scale { display: flex; gap: 2px; }
+.hm-legend-step { width: 24px; height: 14px; border-radius: 2px; background: color-mix(in oklch, var(--fg-primary) calc(var(--v) * 16%), var(--bg-sunken)); }
+
+/* ===================== RELATION · EcosystemMap (중심-위성) ===================== */
+.ecosystem-section { background: var(--bg-sunken); }
+.ecosystem {
+  position: relative; aspect-ratio: 1.4 / 1; max-width: 640px; margin: 0 auto;
+}
+.eco-center {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 130px; height: 130px; border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  border: 1.5px solid transparent;
+  background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box;
+  font-weight: 700; font-size: 15px; z-index: 2;
+}
+.eco-sat {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--a)) translate(var(--r, 240px)) rotate(calc(-1 * var(--a)));
+  width: 100px; height: 100px; border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  background: var(--bg-surface); border: 1px solid var(--line-soft);
+  font-size: 13px; z-index: 2;
+}
+.eco-edge {
+  position: absolute; left: 50%; top: 50%; height: 1px; width: var(--r, 240px);
+  background: var(--line-medium); transform-origin: left center;
+  transform: rotate(var(--a)); z-index: 1;
+}
+@media (max-width: 600px) { .eco-sat { --r: 150px; width: 76px; height: 76px; } .eco-edge { width: 150px; } }

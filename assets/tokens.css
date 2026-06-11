@@ -331,13 +331,15 @@ html { scroll-behavior: smooth; }
   z-index: 1;
 }
 
-/* fade-in scroll reveal */
-.reveal {
+/* fade-in scroll reveal — progressive enhancement.
+   JS가 <html>에 .js를 붙였을 때만 숨겼다가 .in으로 올립니다.
+   JS가 없으면(정적 복사·캡처·인쇄) reveal 요소는 항상 보입니다. */
+html.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
 }
-.reveal.in {
+html.js .reveal.in {
   opacity: 1;
   transform: translateY(0);
 }

@@ -385,3 +385,98 @@
   color: var(--fg-primary);
   line-height: 1.5;
 }
+
+/* ============================================================
+   v2.0 METRIC·COMPARE 보강 — 정적 스니펫 전용 (기존 블록 보존)
+   데이터 바인딩은 CSS 변수(--value·--pct·--v)로. 하드코딩 추방.
+   ============================================================ */
+
+/* ===================== METRIC · Gauge (반원 게이지) ===================== */
+.gauge-section { background: var(--bg-canvas); }
+.gauge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 880px) { .gauge-grid { grid-template-columns: 1fr; } }
+.gauge {
+  background: var(--bg-surface); border: 1px solid var(--line-soft);
+  border-radius: var(--r-3); padding: 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.gauge-svg { width: 100%; max-width: 220px; }
+.gauge-track { fill: none; stroke: var(--line-medium); stroke-width: 14; stroke-linecap: round; }
+/* 진행 호 — stroke-dasharray를 --value(0~100)로. pathLength=100 기준. */
+.gauge-arc {
+  fill: none; stroke: url(#prism-stroke); stroke-width: 14; stroke-linecap: round;
+  stroke-dasharray: calc(var(--value) * 1) 100;
+  pathLength: 100;
+  transition: stroke-dasharray var(--dur-slow) var(--ease-out);
+}
+.gauge-num { font-family: var(--font-mono); font-size: 34px; font-weight: 700; margin-top: -16px; }
+.gauge-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-tertiary); }
+
+/* ===================== METRIC · ProgressBar (진행바·달성률) ===================== */
+.progress-section { background: var(--bg-sunken); }
+.progress-stack { display: flex; flex-direction: column; gap: 20px; }
+.progress-row { display: grid; grid-template-columns: 200px 1fr 56px; gap: 16px; align-items: center; }
+@media (max-width: 720px) { .progress-row { grid-template-columns: 1fr; gap: 6px; } }
+.progress-name { font-size: 14px; font-weight: 600; }
+.progress-track { background: var(--bg-sunken); border: 1px solid var(--line-soft); border-radius: var(--r-pill); height: 14px; overflow: hidden; }
+.progress-section .progress-track { background: var(--bg-canvas); }
+.progress-fill {
+  height: 100%; border-radius: var(--r-pill);
+  width: calc(var(--pct) * 1%);
+  background: var(--line-strong);
+  transition: width var(--dur-slow) var(--ease-out);
+}
+/* 강조 막대 1개만 프리즘 fill */
+.progress-fill.accent { background: var(--grad-prism); }
+.progress-pct { font-family: var(--font-mono); font-size: 13px; font-weight: 700; text-align: right; }
+
+/* ===================== METRIC · Chart (data-bound) ===================== */
+/* 막대: height를 --v(0~100) %로. 도넛: stroke-dasharray를 --value로. */
+.chartbound-section { background: var(--bg-canvas); }
+.chartbound-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+@media (max-width: 880px) { .chartbound-grid { grid-template-columns: 1fr; } }
+.cb-card { background: var(--bg-surface); border: 1px solid var(--line-soft); border-radius: var(--r-3); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.cb-cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-tertiary); }
+/* 막대 차트 */
+.cb-bars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 10px; align-items: end; height: 180px; }
+.cb-bar-col { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; }
+.cb-bar {
+  width: 100%; max-width: 44px; border-radius: var(--r-1) var(--r-1) 0 0;
+  height: calc(var(--v) * 1%);
+  background: var(--bg-sunken); border: 1px solid var(--line-medium);
+}
+.cb-bar.accent { background: var(--grad-prism); border: none; }
+.cb-bar-x { font-family: var(--font-mono); font-size: 11px; color: var(--fg-tertiary); }
+/* 도넛 차트 */
+.cb-donut-wrap { display: grid; place-items: center; }
+.cb-donut { width: 160px; height: 160px; transform: rotate(-90deg); }
+.cb-donut-track { fill: none; stroke: var(--line-medium); stroke-width: 16; }
+.cb-donut-arc {
+  fill: none; stroke: url(#prism-stroke); stroke-width: 16; stroke-linecap: round;
+  stroke-dasharray: calc(var(--value) * 1) 100; pathLength: 100;
+  transition: stroke-dasharray var(--dur-slow) var(--ease-out);
+}
+.cb-donut-center { font-family: var(--font-mono); font-size: 24px; font-weight: 700; }
+
+/* ===================== COMPARE · BeforeAfter (전후 대비) ===================== */
+.beforeafter-section { background: var(--bg-sunken); }
+.beforeafter { display: grid; grid-template-columns: 1fr 44px 1fr; align-items: stretch; gap: 0; }
+@media (max-width: 720px) { .beforeafter { grid-template-columns: 1fr; } }
+.ba-col { padding: 28px; display: flex; flex-direction: column; gap: 12px; border-radius: var(--r-3); }
+.ba-before { background: var(--bg-sunken); border: 1px solid var(--line-soft); }
+.ba-after { background: var(--bg-surface); border-top: 2px solid transparent; border: 1px solid var(--line-soft); }
+.ba-after { background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, var(--grad-prism) border-box; border: 1.5px solid transparent; }
+.ba-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-tertiary); }
+.ba-h { font-size: 20px; font-weight: 700; letter-spacing: var(--tr-snug); }
+.ba-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ba-list li { font-size: 14px; color: var(--fg-secondary); padding-left: 18px; position: relative; line-height: 1.5; }
+.ba-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--fg-tertiary); }
+.ba-after .ba-list li::before { background: var(--prism-2); }
+.ba-divider { display: grid; place-items: center; font-family: var(--font-mono); color: var(--fg-tertiary); font-size: 16px; }
+@media (max-width: 720px) { .ba-divider { transform: rotate(90deg); padding: 8px 0; } }
+
+/* ===================== COMPARE · Matrix2x2 사분면 음영 보강 ===================== */
+/* 기존 .matrix-q 헤어라인에 --bg-sunken 단계 음영 추가 (1사분면만 프리즘). */
+.matrix-q-1 { background: color-mix(in oklch, var(--bg-sunken) 40%, var(--bg-surface)); }
+.matrix-q-2 { background: color-mix(in oklch, var(--bg-sunken) 70%, var(--bg-surface)); }
+.matrix-q-3 { background: var(--bg-sunken); }

@@ -1,5 +1,29 @@
 # prism-design CHANGELOG
 
+## v2.0 — 2026-06-11 (정적 HTML 1급 전환·8패밀리 풀세트)
+
+### 변경
+- 1급 산출 경로를 React·Babel·CDN 의존 없는 자기완결 단일 HTML+CSS로 전환했습니다. `assets/*.jsx` JSX 라이브러리는 레거시·옵션으로 보존합니다.
+- `references/snippets-static.html`을 신설해 8패밀리 전 컴포넌트를 복사해 바로 쓰는 순수 HTML+CSS 스니펫으로 보유합니다(데이터 교체 지점 주석 동봉).
+- 8패밀리 풀세트를 채웠습니다 — 신규: BranchFlow·Sequence·Pipeline(FLOW), Tree·LayerStack·PyramidShape 삼각형(HIERARCHY), BeforeAfter(COMPARE), Gauge·ProgressBar·data-bound Chart(METRIC), EcosystemMap(RELATION), Gantt(TIME), PositionMap·Heatmap(DISTRIBUTION). 보강: Matrix2x2 사분면 음영.
+- CSS 블록을 `styles-viz.css`·`styles-data.css`에 추가했습니다(기존 블록 삭제 없음). 데이터 바인딩은 CSS 변수(`--value`·`--pct`·`--v`·`--start`·`--span`·`--x`·`--y`·`--a`)로 받아 고정 하드코딩을 추방합니다.
+- `SKILL.md`에 매핑 게이트(STEP1~5)·문체 불가침 vs 정보 재구성 분리 규칙·8패밀리 결정트리·8패밀리 인덱스를 내장하고, description을 한글 트리거 선두 + 영문 페어 + NOT 경계로 재작성했습니다.
+- `references/build-recipe.md`를 정적 경로로 재작성하고 결정트리를 8패밀리 풀세트로 확장했습니다. JSX 경로는 부록(레거시)으로 강등했습니다.
+- `assets/samples/eight-families.html`을 신설해 8패밀리를 자기완결 정적 HTML로 시연합니다(브라우저 더블클릭으로 오프라인 렌더).
+- JSX 라이브러리에 신규 컴포넌트 병행본을 등록했습니다(`window.PRISM_VIZ`·`PRISM_SHAPES`·`PRISM_DATA`).
+
+### 사유
+JSX·React·Babel 런타임 의존은 CDN 차단·오프라인·단일 파일 공유에서 깨졌습니다. 정적 HTML+CSS를 1급으로 올려 더블클릭 한 번으로 렌더되게 했습니다. 또 description이 영문이라 한글 요청에서 발동이 약해, 트리거 키워드를 선두로 박았습니다.
+
+### 주의
+- 게이지·도넛·라인 차트는 body 최상단 프리즘 SVG defs(`#prism-stroke`)를 1회 둬야 호 색이 나옵니다.
+- 프리즘 액센트는 컴포넌트당 1곳 — 면 fill이 아니라 보더·링·도트·1셀 강조로 한정합니다.
+
+### 보존
+- 기존 샘플(`report.html`·`pitch.html`·`landing.html`·`dashboard.html`)·토큰·JSX 라이브러리·QC 스크립트는 그대로 둡니다.
+
+---
+
 ## v1.6 — 2026-05-14 (형광펜 px 고정·세로 0)
 
 ### 변경

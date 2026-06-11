@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko" data-theme="light" data-volume="standard">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prism · 8패밀리 데모 (자기완결 정적)</title>
+<!-- 자기완결 정적 HTML — React·Babel·CDN 런타임 의존 없음.
+     로컬 CSS 5종만 링크합니다(폰트만 CDN @import, 오프라인이면 system-ui로 fallback). -->
+<link rel="stylesheet" href="../tokens.css" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../styles-data.css" />
+<link rel="stylesheet" href="../styles-viz.css" />
+<link rel="stylesheet" href="../styles-doc.css" />
+<style>
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  .demo-eyebrow { padding-top: var(--sp-8); }
+</style>
+</head>
+<body>
+
+<!-- 프리즘 SVG 그라디언트 defs — 게이지·도넛 stroke가 참조. body 최상단 1회. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="prism-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#4F7DFF"/><stop offset="22%" stop-color="#8C5CFF"/>
+    <stop offset="46%" stop-color="#E04CC6"/><stop offset="68%" stop-color="#FF6A4D"/>
+    <stop offset="88%" stop-color="#FFB347"/><stop offset="100%" stop-color="#4FD1B7"/>
+  </linearGradient>
+</defs></svg>
+
+<main>
+<!-- ===== 표지 ===== -->
+<section class="section-hero">
+  <div class="container">
+    <span class="eyebrow">PRISM DESIGN · STANDARD</span>
+    <h1 class="display-1" style="margin-top: var(--sp-4);">8패밀리를 한 미감으로</h1>
+    <p class="body-lg" style="max-width: var(--container-medium); margin-top: var(--sp-5);">
+      흐름·계층·비교·수치·관계·시간·분포·표 — 여덟 가지 시각문법을 무채색 헤어라인 구조와 소량의 프리즘 액센트로 담습니다. 이 페이지는 React 없이 정적 HTML과 로컬 CSS만으로 렌더됩니다.
+    </p>
+  </div>
+</section>
+
+<!-- ===== 01 FLOW ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">01 · FLOW — Pipeline</span></div>
+<section class="section pipeline-section">
+  <div class="container">
+    <div class="pipeline">
+      <div class="pl-stage reveal"><span class="pl-stage-k">INPUT</span><span class="pl-stage-h">원천 데이터</span><span class="pl-stage-p">로그·폼·센서 수집</span></div>
+      <div class="pl-stage accent reveal"><span class="pl-stage-k">PROCESS</span><span class="pl-stage-h">정제·변환</span><span class="pl-stage-p">검증과 표준화</span></div>
+      <div class="pl-stage reveal"><span class="pl-stage-k">OUTPUT</span><span class="pl-stage-h">리포트</span><span class="pl-stage-p">대시보드 전달</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 HIERARCHY ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">02 · HIERARCHY — LayerStack</span></div>
+<section class="section layerstack-section">
+  <div class="container">
+    <div class="layerstack">
+      <div class="ls-layer top reveal"><span class="ls-idx">04</span><span class="ls-body"><span class="ls-h">애플리케이션</span><span class="ls-p">사용자가 만나는 화면</span></span><span class="ls-tag">UI</span></div>
+      <div class="ls-layer reveal"><span class="ls-idx">03</span><span class="ls-body"><span class="ls-h">서비스</span><span class="ls-p">비즈니스 규칙</span></span><span class="ls-tag">LOGIC</span></div>
+      <div class="ls-layer reveal"><span class="ls-idx">02</span><span class="ls-body"><span class="ls-h">데이터</span><span class="ls-p">저장과 조회</span></span><span class="ls-tag">STORE</span></div>
+      <div class="ls-layer reveal"><span class="ls-idx">01</span><span class="ls-body"><span class="ls-h">인프라</span><span class="ls-p">네트워크와 컴퓨트</span></span><span class="ls-tag">BASE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 COMPARE ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">03 · COMPARE — BeforeAfter</span></div>
+<section class="section beforeafter-section">
+  <div class="container">
+    <div class="beforeafter">
+      <div class="ba-col ba-before reveal"><span class="ba-tag">BEFORE</span><span class="ba-h">수기 집계</span><ul class="ba-list"><li>월말 3일 소요</li><li>수치 불일치 잦음</li><li>이력 추적 불가</li></ul></div>
+      <div class="ba-divider">▶</div>
+      <div class="ba-col ba-after reveal"><span class="ba-tag">AFTER</span><span class="ba-h">자동 파이프라인</span><ul class="ba-list"><li>실시간 갱신</li><li>단일 출처 정합</li><li>전 이력 보존</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 METRIC ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">04 · METRIC — Gauge</span></div>
+<section class="section gauge-section">
+  <div class="container">
+    <div class="gauge-grid">
+      <div class="gauge reveal"><svg class="gauge-svg" viewBox="0 0 120 70"><path class="gauge-track" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100"/><path class="gauge-arc" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100" style="--value: 64;"/></svg><span class="gauge-num">64%</span><span class="gauge-label">가동률</span></div>
+      <div class="gauge reveal"><svg class="gauge-svg" viewBox="0 0 120 70"><path class="gauge-track" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100"/><path class="gauge-arc" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100" style="--value: 88;"/></svg><span class="gauge-num">88%</span><span class="gauge-label">만족도</span></div>
+      <div class="gauge reveal"><svg class="gauge-svg" viewBox="0 0 120 70"><path class="gauge-track" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100"/><path class="gauge-arc" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100" style="--value: 41;"/></svg><span class="gauge-num">41%</span><span class="gauge-label">전환율</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 RELATION ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">05 · RELATION — EcosystemMap</span></div>
+<section class="section ecosystem-section">
+  <div class="container">
+    <div class="ecosystem reveal">
+      <div class="eco-edge" style="--a: 0deg;   --r: 230px;"></div>
+      <div class="eco-edge" style="--a: 72deg;  --r: 230px;"></div>
+      <div class="eco-edge" style="--a: 144deg; --r: 230px;"></div>
+      <div class="eco-edge" style="--a: 216deg; --r: 230px;"></div>
+      <div class="eco-edge" style="--a: 288deg; --r: 230px;"></div>
+      <div class="eco-center">플랫폼</div>
+      <div class="eco-sat" style="--a: 0deg;   --r: 230px;">크리에이터</div>
+      <div class="eco-sat" style="--a: 72deg;  --r: 230px;">팬</div>
+      <div class="eco-sat" style="--a: 144deg; --r: 230px;">브랜드</div>
+      <div class="eco-sat" style="--a: 216deg; --r: 230px;">파트너</div>
+      <div class="eco-sat" style="--a: 288deg; --r: 230px;">운영</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 TIME ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">06 · TIME — Gantt</span></div>
+<section class="section gantt-section">
+  <div class="container">
+    <div class="gantt" style="--units: 6;">
+      <div class="gantt-head"><div class="gantt-task">작업</div><div class="gantt-scale"><span class="gantt-tick">W1</span><span class="gantt-tick">W2</span><span class="gantt-tick">W3</span><span class="gantt-tick">W4</span><span class="gantt-tick">W5</span><span class="gantt-tick">W6</span></div></div>
+      <div class="gantt-row reveal"><div class="gantt-task">리서치</div><div class="gantt-track"><div class="gantt-bar" style="--start: 1; --span: 2;"></div></div></div>
+      <div class="gantt-row reveal"><div class="gantt-task">설계</div><div class="gantt-track"><div class="gantt-bar now" style="--start: 2; --span: 2;"></div></div></div>
+      <div class="gantt-row reveal"><div class="gantt-task">구현</div><div class="gantt-track"><div class="gantt-bar" style="--start: 4; --span: 3;"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 07 DISTRIBUTION ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">07 · DISTRIBUTION — Heatmap</span></div>
+<section class="section heatmap-section">
+  <div class="container">
+    <div class="heatmap-wrap">
+      <div class="heatmap" style="--cols: 4;">
+        <span class="hm-corner"></span><span class="hm-colh">월</span><span class="hm-colh">화</span><span class="hm-colh">수</span><span class="hm-colh">목</span>
+        <span class="hm-rowh">오전</span><span class="hm-cell" style="--v: 0.2;">12</span><span class="hm-cell" style="--v: 0.5;">31</span><span class="hm-cell" style="--v: 0.4;">24</span><span class="hm-cell" style="--v: 0.7;">44</span>
+        <span class="hm-rowh">오후</span><span class="hm-cell" style="--v: 0.6;">38</span><span class="hm-cell peak" style="--v: 1;">61</span><span class="hm-cell" style="--v: 0.8;">52</span><span class="hm-cell" style="--v: 0.3;">19</span>
+      </div>
+      <div class="heatmap-legend"><span>강도</span><div class="hm-legend-scale"><span class="hm-legend-step" style="--v: 0.1;"></span><span class="hm-legend-step" style="--v: 0.4;"></span><span class="hm-legend-step" style="--v: 0.7;"></span><span class="hm-legend-step" style="--v: 1;"></span></div><span>낮음 → 높음</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08 TABLE ===== -->
+<div class="container"><span class="eyebrow demo-eyebrow">08 · TABLE — DataTable</span></div>
+<section class="section compare-section">
+  <div class="container">
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead><tr><th>지표</th><th>전월</th><th>당월</th><th>증감</th></tr></thead>
+        <tbody>
+          <tr><td class="compare-key">매출</td><td class="compare-val">8.2억</td><td class="compare-val">9.6억</td><td class="compare-val">+17%</td></tr>
+          <tr><td class="compare-key">신규</td><td class="compare-val">1,240</td><td class="compare-val">1,580</td><td class="compare-val">+27%</td></tr>
+          <tr><td class="compare-key">이탈</td><td class="compare-val">3.1%</td><td class="compare-val">2.4%</td><td class="compare-val">−0.7%p</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>

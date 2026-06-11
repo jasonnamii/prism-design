@@ -255,4 +255,99 @@ function Callouts({ copy }) {
   );
 }
 
-window.PRISM_DATA = { StatGrid, PullQuote, Timeline, Comparison, DataViz, FAQ, Changelog, Callouts };
+/* ============== v2.0 신규 (레거시 호환 JSX 병행본) ==============
+   1급 산출 경로는 references/snippets-static.html의 정적 스니펫입니다.
+   데이터 바인딩은 CSS 변수(--value·--pct·--v)로 받습니다. ============== */
+
+/* Gauge — 반원 게이지. copy: { items:[{value, num, label}] } */
+function Gauge({ copy }) {
+  return (
+    <section className="section gauge-section">
+      <div className="container">
+        <div className="gauge-grid">
+          {copy.items.map((g, i) => (
+            <Reveal key={i} delay={i * 60} className="gauge">
+              <svg className="gauge-svg" viewBox="0 0 120 70">
+                <path className="gauge-track" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100" />
+                <path className="gauge-arc" d="M 10 60 A 50 50 0 0 1 110 60" pathLength="100" style={{ "--value": g.value }} />
+              </svg>
+              <span className="gauge-num">{g.num}</span>
+              <span className="gauge-label">{g.label}</span>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ProgressBar — 진행바. copy: { rows:[{name, pct, label, accent}] } */
+function ProgressBar({ copy }) {
+  return (
+    <section className="section progress-section">
+      <div className="container">
+        <div className="progress-stack">
+          {copy.rows.map((r, i) => (
+            <Reveal key={i} delay={i * 50} className="progress-row">
+              <span className="progress-name">{r.name}</span>
+              <div className="progress-track"><div className={`progress-fill${r.accent ? " accent" : ""}`} style={{ "--pct": r.pct }} /></div>
+              <span className="progress-pct">{r.label}</span>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* BeforeAfter — 전후 대비. copy: { before:{h, items:[]}, after:{h, items:[]} } */
+function BeforeAfter({ copy }) {
+  return (
+    <section className="section beforeafter-section">
+      <div className="container">
+        <div className="beforeafter">
+          <Reveal className="ba-col ba-before">
+            <span className="ba-tag">BEFORE</span><span className="ba-h">{copy.before.h}</span>
+            <ul className="ba-list">{copy.before.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
+          </Reveal>
+          <div className="ba-divider">▶</div>
+          <Reveal delay={80} className="ba-col ba-after">
+            <span className="ba-tag">AFTER</span><span className="ba-h">{copy.after.h}</span>
+            <ul className="ba-list">{copy.after.items.map((it, i) => <li key={i}>{it}</li>)}</ul>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ChartBound — data-bound 막대+도넛. copy: { bars:{cap, items:[{v, x, accent}]}, donut:{cap, value, center} } */
+function ChartBound({ copy }) {
+  return (
+    <section className="section chartbound-section">
+      <div className="container">
+        <div className="chartbound-grid">
+          <Reveal className="cb-card">
+            <span className="cb-cap">{copy.bars.cap}</span>
+            <div className="cb-bars">
+              {copy.bars.items.map((b, i) => (
+                <div key={i} className="cb-bar-col"><div className={`cb-bar${b.accent ? " accent" : ""}`} style={{ "--v": b.v }} /><span className="cb-bar-x">{b.x}</span></div>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={80} className="cb-card">
+            <span className="cb-cap">{copy.donut.cap}</span>
+            <div className="cb-donut-wrap">
+              <svg className="cb-donut" viewBox="0 0 120 120">
+                <circle className="cb-donut-track" cx="60" cy="60" r="52" pathLength="100" />
+                <circle className="cb-donut-arc" cx="60" cy="60" r="52" pathLength="100" style={{ "--value": copy.donut.value }} />
+              </svg>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+window.PRISM_DATA = { StatGrid, PullQuote, Timeline, Comparison, DataViz, FAQ, Changelog, Callouts, Gauge, ProgressBar, BeforeAfter, ChartBound };
