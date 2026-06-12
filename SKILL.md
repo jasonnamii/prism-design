@@ -1,7 +1,8 @@
 ---
 name: prism-design
+version: 1.0
 description: |
-  프리즘 디자인(prism-design) — 중립·구조적 HTML 디자인·시각화 시스템. 보고서·화이트페이퍼·릴리즈노트·제품 페이지·키노트 덱·인포그래픽을 절제된 프리즘 액센트와 헤어라인 구조로 만듭니다. React·CDN 의존 없는 자기완결 단일 HTML+CSS가 기본 산출이며, 8대 시각문법(흐름·계층·비교·수치·관계·시간·분포·표) 풀세트를 프리즘 고유 미감으로 보유합니다. Neutral, structured HTML design system for reports, white papers, release notes, product pages, keynote decks, infographics — restrained prism accents, hairline structure, editorial and credible. 기본 STANDARD, AMPED는 명시 시. 트리거: 프리즘디자인, prism, prism-design, 프리즘으로, 프리즘 스타일, 보고서 만들어줘, 화이트페이퍼, white paper, 릴리즈노트, release notes, 키노트덱, 키노트 스타일, 제품페이지, 인포그래픽, 구조적 HTML, 장문 문서, 모델카드, model card, 시각화 보고서, 데이터 보고서. NOT: 제품 쇼케이스·감성 프리미엄 덱·시네마틱 원페이지(→apple-canvas), 문화·청소년·캠페인 비주얼(→teenage-design), 흑백 캠페인·슈프림풍(→box-cut-design), 매거진·serif 에디토리얼(→editorial-design), 컬러 페어 블록 팔레트(→color-skill), 화면 디자인·UI 설계(→ui-designer), 순수 산문 퇴고(→submission-cleanup), HTML 마무리·모바일 실측만(→html-finisher).
+  프리즘 디자인(prism-design) — 보고서, 화이트페이퍼, 릴리즈노트, 제품 페이지, 키노트 덱, 인포그래픽을 중립적이고 구조적인 HTML로 만드는 디자인·시각화 시스템. 트리거: 프리즘디자인, prism-design, 보고서 만들어줘, 화이트페이퍼, 릴리즈노트, 구조적 HTML, 시각화 보고서. NOT: apple-canvas, teenage-design, box-cut-design, editorial-design, UI 설계, HTML 피니싱.
 license: Proprietary. Internal use.
 ---
 
